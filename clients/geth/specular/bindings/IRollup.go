@@ -17,6 +17,7 @@ import (
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
+// just adding this to see if the formatting works this way
 var (
 	_ = errors.New
 	_ = big.NewInt

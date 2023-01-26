@@ -25,6 +25,7 @@ type Batch struct {
 // Batcher assumes exclusive control of underlying blockchain, i.e.
 // mining and blockchain insertion can not happen.
 // TODO: support Berlin+London fork
+// adding a small comment
 type Batcher struct {
 	eth         services.Backend
 	chain       *core.BlockChain
