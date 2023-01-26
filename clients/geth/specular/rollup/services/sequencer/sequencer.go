@@ -232,7 +232,7 @@ func (s *Sequencer) sequencingLoop(genesisRoot common.Hash) {
 		)
 		if err.Is(err, core.ErrInsufficientFunds) {
 			log.Crit("Insufficient Funds to send Tx", "error", err)
-		}		
+		}
 		if err != nil {
 			log.Error("Can not create DA", "error", err)
 		}
