@@ -2,10 +2,15 @@ name: Bindings
 
 on: [push, pull_request]
 
-jobs: 
+
+jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
 
-	steps: 
-	- name: Generate contract Go bindings
-	  run: make
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: Generate contracts Go bindings
+        run: (cd ./contracts && make)
+ 
