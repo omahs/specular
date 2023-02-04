@@ -6,6 +6,6 @@ make install
 echo "Successfully build L2"
 
 
-cd ../../../contracts 
+cd ../../../contracts
 yarn lint-staged
 
