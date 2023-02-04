@@ -8,5 +8,4 @@ exit
 
 cd contracts 
 yarn lint-staged
-npm run lint:fix
-git add .
+
