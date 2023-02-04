@@ -4,8 +4,8 @@
 cd clients/geth/specular
 make install
 echo "Successfully build L2"
-exit 
 
-cd contracts 
+
+cd ../../../contracts 
 yarn lint-staged
 
