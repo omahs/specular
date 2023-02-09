@@ -1,7 +1,7 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
 
-const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deploySequencer: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     const {deployments, getNamedAccounts, ethers, upgrades} = hre;
     const {deploy} = deployments;
     const {sequencer} = await getNamedAccounts();
@@ -18,5 +18,5 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   
 }
 
-export default func;
-func.tags = ['SequencerInbox'];
+deploySequencer.tags = ['SequencerInbox', 'V1'];
+export default deploySequencer;;

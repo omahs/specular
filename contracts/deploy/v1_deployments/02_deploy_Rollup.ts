@@ -2,7 +2,7 @@ import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
 import {Manifest} from '@openzeppelin/upgrades-core';
 
-const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deployRollup: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     const {deployments, getNamedAccounts, ethers, upgrades, network} = hre;
     const {deploy} = deployments;
     const {sequencer} = await getNamedAccounts();
@@ -38,5 +38,5 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   
 }
 
-export default func;
-func.tags = ['Rollup'];
+deployRollup.tags = ['Rollup', 'V1'];
+export default deployRollup;
