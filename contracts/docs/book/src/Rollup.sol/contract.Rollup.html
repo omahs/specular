@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rollup</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../book.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="../../src/challenge/index.html">❱ challenge</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../src/challenge/verifier/index.html">❱ verifier</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../src/challenge/verifier/IVerificationContext.sol/contract.IVerificationContext.html">IVerificationContext</a></li><li class="chapter-item "><a href="../../src/challenge/verifier/IVerifier.sol/contract.IVerifier.html">IVerifier</a></li><li class="chapter-item "><a href="../../src/challenge/verifier/Verifier.sol/contract.Verifier.html">Verifier</a></li></ol></li><li class="chapter-item "><a href="../../src/challenge/Challenge.sol/contract.Challenge.html">Challenge</a></li><li class="chapter-item "><a href="../../src/challenge/ChallengeLib.sol/contract.ChallengeLib.html">ChallengeLib</a></li><li class="chapter-item "><a href="../../src/challenge/IChallenge.sol/contract.IChallenge.html">IChallenge</a></li></ol></li><li class="chapter-item "><a href="../../src/libraries/index.html">❱ libraries</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../src/libraries/BytesLib.sol/contract.BytesLib.html">BytesLib</a></li><li class="chapter-item "><a href="../../src/libraries/DeserializationLib.sol/contract.DeserializationLib.html">DeserializationLib</a></li><li class="chapter-item "><a href="../../src/libraries/Errors.sol/error.NotRollup.html">NotRollup</a></li><li class="chapter-item "><a href="../../src/libraries/Errors.sol/error.NotChallenge.html">NotChallenge</a></li><li class="chapter-item "><a href="../../src/libraries/Errors.sol/error.NotSequencer.html">NotSequencer</a></li><li class="chapter-item "><a href="../../src/libraries/Errors.sol/error.ZeroAddress.html">ZeroAddress</a></li></ol></li><li class="chapter-item "><a href="../../src/pre-deploy/index.html">❱ pre-deploy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../src/pre-deploy/Faucet.sol/contract.Faucet.html">Faucet</a></li></ol></li><li class="chapter-item "><a href="../../src/AssertionMap.sol/contract.AssertionMap.html">AssertionMap</a></li><li class="chapter-item "><a href="../../src/IRollup.sol/contract.IRollup.html">IRollup</a></li><li class="chapter-item "><a href="../../src/ISequencerInbox.sol/contract.ISequencerInbox.html">ISequencerInbox</a></li><li class="chapter-item "><a href="../../src/Rollup.sol/contract.RollupBase.html">RollupBase</a></li><li class="chapter-item expanded "><a href="../../src/Rollup.sol/contract.Rollup.html" class="active">Rollup</a></li><li class="chapter-item "><a href="../../src/RollupLib.sol/contract.RollupLib.html">RollupLib</a></li><li class="chapter-item "><a href="../../src/SequencerInbox.sol/contract.SequencerInbox.html">SequencerInbox</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/SpecularL2/specular" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="rollup"><a class="header" href="#rollup">Rollup</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/Rollup.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="/src/Rollup.sol/contract.RollupBase.html">RollupBase</a></p>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="lastresolvedassertionid"><a class="header" href="#lastresolvedassertionid">lastResolvedAssertionID</a></h3>
+<pre><code class="language-solidity">uint256 public lastResolvedAssertionID;
+</code></pre>
+<h3 id="lastconfirmedassertionid"><a class="header" href="#lastconfirmedassertionid">lastConfirmedAssertionID</a></h3>
+<pre><code class="language-solidity">uint256 public lastConfirmedAssertionID;
+</code></pre>
+<h3 id="lastcreatedassertionid"><a class="header" href="#lastcreatedassertionid">lastCreatedAssertionID</a></h3>
+<pre><code class="language-solidity">uint256 public lastCreatedAssertionID;
+</code></pre>
+<h3 id="numstakers"><a class="header" href="#numstakers">numStakers</a></h3>
+<pre><code class="language-solidity">uint256 public numStakers;
+</code></pre>
+<h3 id="stakers"><a class="header" href="#stakers">stakers</a></h3>
+<pre><code class="language-solidity">mapping(address =&gt; Staker) public stakers;
+</code></pre>
+<h3 id="withdrawablefunds"><a class="header" href="#withdrawablefunds">withdrawableFunds</a></h3>
+<pre><code class="language-solidity">mapping(address =&gt; uint256) public withdrawableFunds;
+</code></pre>
+<h3 id="zombies"><a class="header" href="#zombies">zombies</a></h3>
+<pre><code class="language-solidity">Zombie[] public zombies;
+</code></pre>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="stakedonly"><a class="header" href="#stakedonly">stakedOnly</a></h3>
+<pre><code class="language-solidity">modifier stakedOnly();
+</code></pre>
+<h3 id="initialize"><a class="header" href="#initialize">initialize</a></h3>
+<pre><code class="language-solidity">function initialize(
+    address _vault,
+    address _sequencerInbox,
+    address _verifier,
+    address _stakeToken,
+    uint256 _confirmationPeriod,
+    uint256 _challengePeriod,
+    uint256 _minimumAssertionPeriod,
+    uint256 _maxGasPerAssertion,
+    uint256 _baseStakeAmount,
+    bytes32 _initialVMhash
+) public initializer;
+</code></pre>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<pre><code class="language-solidity">constructor();
+</code></pre>
+<h3 id="_authorizeupgrade"><a class="header" href="#_authorizeupgrade">_authorizeUpgrade</a></h3>
+<pre><code class="language-solidity">function _authorizeUpgrade(address) internal override onlyOwner;
+</code></pre>
+<h3 id="isstaked"><a class="header" href="#isstaked">isStaked</a></h3>
+<pre><code class="language-solidity">function isStaked(address addr) public view override returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>addr</code></td><td><code>address</code></td><td>User address.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>True if address is staked, else False.</td></tr>
+</tbody></table>
+</div>
+<h3 id="currentrequiredstake"><a class="header" href="#currentrequiredstake">currentRequiredStake</a></h3>
+<pre><code class="language-solidity">function currentRequiredStake() public view override returns (uint256);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The current required stake amount.</td></tr>
+</tbody></table>
+</div>
+<h3 id="confirmedinboxsize"><a class="header" href="#confirmedinboxsize">confirmedInboxSize</a></h3>
+<pre><code class="language-solidity">function confirmedInboxSize() public view override returns (uint256);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>confirmedInboxSize size of inbox confirmed</td></tr>
+</tbody></table>
+</div>
+<h3 id="stake"><a class="header" href="#stake">stake</a></h3>
+<p>Deposits stake on staker's current assertion (or the last confirmed assertion if not currently staked).</p>
+<pre><code class="language-solidity">function stake() external payable override;
+</code></pre>
+<h3 id="unstake"><a class="header" href="#unstake">unstake</a></h3>
+<p>Withdraws stakeAmount from staker's stake by if assertion it is staked on is confirmed.</p>
+<pre><code class="language-solidity">function unstake(uint256 stakeAmount) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakeAmount</code></td><td><code>uint256</code></td><td>Token amount to withdraw. Must be &lt;= sender's current stake minus the current required stake.</td></tr>
+</tbody></table>
+</div>
+<h3 id="removestake"><a class="header" href="#removestake">removeStake</a></h3>
+<p>Removes stakerAddress from the set of stakers and withdraws the full stake amount to stakerAddress.
+This can be called by anyone since it is currently necessary to keep the chain progressing.</p>
+<pre><code class="language-solidity">function removeStake(address stakerAddress) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of staker for which to unstake.</td></tr>
+</tbody></table>
+</div>
+<h3 id="advancestake"><a class="header" href="#advancestake">advanceStake</a></h3>
+<p>Advances msg.sender's existing stake to assertionID.</p>
+<pre><code class="language-solidity">function advanceStake(uint256 assertionID) external override stakedOnly;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>assertionID</code></td><td><code>uint256</code></td><td>ID of assertion to advance stake to. Currently this must be a child of the current assertion. TODO: generalize to arbitrary descendants.</td></tr>
+</tbody></table>
+</div>
+<h3 id="withdraw"><a class="header" href="#withdraw">withdraw</a></h3>
+<p>Withdraws all of msg.sender's withdrawable funds.</p>
+<pre><code class="language-solidity">function withdraw() external override;
+</code></pre>
+<h3 id="createassertion"><a class="header" href="#createassertion">createAssertion</a></h3>
+<p>Creates a new DA representing the rollup state after executing a block of transactions (sequenced in SequencerInbox).
+Block is represented by all transactions in range [prevInboxSize, inboxSize]. The latest staked DA of the sender
+is considered to be the predecessor. Moves sender stake onto the new DA.
+The new DA stores the hash of the parameters: H(l2GasUsed || vmHash)</p>
+<pre><code class="language-solidity">function createAssertion(
+    bytes32 vmHash,
+    uint256 inboxSize,
+    uint256 l2GasUsed,
+    bytes32 prevVMHash,
+    uint256 prevL2GasUsed
+) external override stakedOnly;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>vmHash</code></td><td><code>bytes32</code></td><td>New VM hash.</td></tr>
+<tr><td><code>inboxSize</code></td><td><code>uint256</code></td><td>Size of inbox corresponding to assertion (number of transactions).</td></tr>
+<tr><td><code>l2GasUsed</code></td><td><code>uint256</code></td><td>Total L2 gas used as of the end of this assertion's last transaction.</td></tr>
+<tr><td><code>prevVMHash</code></td><td><code>bytes32</code></td><td>Predecessor assertion VM hash (required because it does not get stored in the assertion).</td></tr>
+<tr><td><code>prevL2GasUsed</code></td><td><code>uint256</code></td><td>Predecessor assertion L2 gas used (required because it does not get stored in the assertion).</td></tr>
+</tbody></table>
+</div>
+<h3 id="challengeassertion"><a class="header" href="#challengeassertion">challengeAssertion</a></h3>
+<pre><code class="language-solidity">function challengeAssertion(address[2] calldata players, uint256[2] calldata assertionIDs)
+    external
+    override
+    returns (address);
+</code></pre>
+<h3 id="confirmfirstunresolvedassertion"><a class="header" href="#confirmfirstunresolvedassertion">confirmFirstUnresolvedAssertion</a></h3>
+<p>Confirms first unresolved assertion. Assertion is confirmed if and only if:
+(1) there is at least one staker, and
+(2) challenge period has passed, and
+(3) predecessor has been confirmed, and
+(4) all stakers are staked on the assertion.</p>
+<pre><code class="language-solidity">function confirmFirstUnresolvedAssertion() external override;
+</code></pre>
+<h3 id="rejectfirstunresolvedassertion"><a class="header" href="#rejectfirstunresolvedassertion">rejectFirstUnresolvedAssertion</a></h3>
+<p>Rejects first unresolved assertion. Assertion is rejected if and only if:
+(1) all of the following are true:
+(a) challenge period has passed, and
+(b) at least one staker exists, and
+(c) no staker remains staked on the assertion (all have been destroyed).
+OR
+(2) predecessor has been rejected</p>
+<pre><code class="language-solidity">function rejectFirstUnresolvedAssertion(address stakerAddress) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of a staker staked on a different branch to the first unresolved assertion. If the first unresolved assertion's parent is confirmed, this parameter is used to establish that a staker exists on a different branch of the assertion chain. This parameter is ignored when the parent of the first unresolved assertion is not the last confirmed assertion.</td></tr>
+</tbody></table>
+</div>
+<h3 id="completechallenge"><a class="header" href="#completechallenge">completeChallenge</a></h3>
+<p>Completes ongoing challenge. Callback, called by a challenge contract.</p>
+<pre><code class="language-solidity">function completeChallenge(address winner, address loser) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>winner</code></td><td><code>address</code></td><td>Address of winning staker.</td></tr>
+<tr><td><code>loser</code></td><td><code>address</code></td><td>Address of losing staker.</td></tr>
+</tbody></table>
+</div>
+<h3 id="stakeonassertion"><a class="header" href="#stakeonassertion">stakeOnAssertion</a></h3>
+<p>Updates staker and assertion metadata.</p>
+<pre><code class="language-solidity">function stakeOnAssertion(address stakerAddress, uint256 assertionID) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of existing staker.</td></tr>
+<tr><td><code>assertionID</code></td><td><code>uint256</code></td><td>ID of existing assertion to stake on.</td></tr>
+</tbody></table>
+</div>
+<h3 id="deletestaker"><a class="header" href="#deletestaker">deleteStaker</a></h3>
+<p>Deletes the staker from global state. Does not touch assertion staker state.</p>
+<pre><code class="language-solidity">function deleteStaker(address stakerAddress) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of the staker to delete</td></tr>
+</tbody></table>
+</div>
+<h3 id="getchallenge"><a class="header" href="#getchallenge">getChallenge</a></h3>
+<p>Checks to see whether the two stakers are in the same challenge</p>
+<pre><code class="language-solidity">function getChallenge(address staker1Address, address staker2Address) private view returns (address);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>staker1Address</code></td><td><code>address</code></td><td>Address of the first staker</td></tr>
+<tr><td><code>staker2Address</code></td><td><code>address</code></td><td>Address of the second staker</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>address</code></td><td>Address of the challenge that the two stakers are in</td></tr>
+</tbody></table>
+</div>
+<h3 id="newassertiondeadline"><a class="header" href="#newassertiondeadline">newAssertionDeadline</a></h3>
+<pre><code class="language-solidity">function newAssertionDeadline() private view returns (uint256);
+</code></pre>
+<h3 id="countstakedzombies"><a class="header" href="#countstakedzombies">countStakedZombies</a></h3>
+<p>Removes any zombies whose latest stake is earlier than the first unresolved assertion.</p>
+<p>Counts the number of zombies staked on an assertion.</p>
+<p><em>Uses pop() instead of delete to prevent gaps, although order is not preserved</em></p>
+<p><em>O(n), where n is # of zombies (but is expected to be small).
+This function could be uncallable if there are too many zombies. However,
+removeOldZombies() can be used to remove any zombies that exist so that this
+will then be callable.</em></p>
+<pre><code class="language-solidity">function countStakedZombies(uint256 assertionID) private view returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>assertionID</code></td><td><code>uint256</code></td><td>The assertion on which to count staked zombies</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The number of zombies staked on the assertion</td></tr>
+</tbody></table>
+</div>
+<h3 id="requirestaked"><a class="header" href="#requirestaked">requireStaked</a></h3>
+<pre><code class="language-solidity">function requireStaked(address stakerAddress) private view;
+</code></pre>
+<h3 id="requireunchallengedstaker"><a class="header" href="#requireunchallengedstaker">requireUnchallengedStaker</a></h3>
+<pre><code class="language-solidity">function requireUnchallengedStaker(address stakerAddress) private view;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../src/Rollup.sol/contract.RollupBase.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../src/RollupLib.sol/contract.RollupLib.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../src/Rollup.sol/contract.RollupBase.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../src/RollupLib.sol/contract.RollupLib.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../solidity.min.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1467 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="book.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="src/challenge/index.html">❱ challenge</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/challenge/verifier/index.html">❱ verifier</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/challenge/verifier/IVerificationContext.sol/contract.IVerificationContext.html">IVerificationContext</a></li><li class="chapter-item "><a href="src/challenge/verifier/IVerifier.sol/contract.IVerifier.html">IVerifier</a></li><li class="chapter-item "><a href="src/challenge/verifier/Verifier.sol/contract.Verifier.html">Verifier</a></li></ol></li><li class="chapter-item "><a href="src/challenge/Challenge.sol/contract.Challenge.html">Challenge</a></li><li class="chapter-item "><a href="src/challenge/ChallengeLib.sol/contract.ChallengeLib.html">ChallengeLib</a></li><li class="chapter-item "><a href="src/challenge/IChallenge.sol/contract.IChallenge.html">IChallenge</a></li></ol></li><li class="chapter-item "><a href="src/libraries/index.html">❱ libraries</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/libraries/BytesLib.sol/contract.BytesLib.html">BytesLib</a></li><li class="chapter-item "><a href="src/libraries/DeserializationLib.sol/contract.DeserializationLib.html">DeserializationLib</a></li><li class="chapter-item "><a href="src/libraries/Errors.sol/error.NotRollup.html">NotRollup</a></li><li class="chapter-item "><a href="src/libraries/Errors.sol/error.NotChallenge.html">NotChallenge</a></li><li class="chapter-item "><a href="src/libraries/Errors.sol/error.NotSequencer.html">NotSequencer</a></li><li class="chapter-item "><a href="src/libraries/Errors.sol/error.ZeroAddress.html">ZeroAddress</a></li></ol></li><li class="chapter-item "><a href="src/pre-deploy/index.html">❱ pre-deploy</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/pre-deploy/Faucet.sol/contract.Faucet.html">Faucet</a></li></ol></li><li class="chapter-item "><a href="src/AssertionMap.sol/contract.AssertionMap.html">AssertionMap</a></li><li class="chapter-item "><a href="src/IRollup.sol/contract.IRollup.html">IRollup</a></li><li class="chapter-item "><a href="src/ISequencerInbox.sol/contract.ISequencerInbox.html">ISequencerInbox</a></li><li class="chapter-item "><a href="src/Rollup.sol/contract.RollupBase.html">RollupBase</a></li><li class="chapter-item "><a href="src/Rollup.sol/contract.Rollup.html">Rollup</a></li><li class="chapter-item "><a href="src/RollupLib.sol/contract.RollupLib.html">RollupLib</a></li><li class="chapter-item "><a href="src/SequencerInbox.sol/contract.SequencerInbox.html">SequencerInbox</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/SpecularL2/specular" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="specular-contracts"><a class="header" href="#specular-contracts">Specular Contracts</a></h1>
+<p>This is the L1 contract of Specular. It is configured for both Hardhat and Founrdry.
+Currently, Hardhat is used for deployment and Froundry is used for testing.</p>
+<h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<p>Install following tools:</p>
+<ul>
+<li><a href="https://nodejs.org/en/"><code>Node.js v16</code></a></li>
+<li><a href="https://yarnpkg.com/getting-started/install"><code>yarn</code></a></li>
+<li><a href="https://book.getfoundry.sh/getting-started/installation"><code>foundry</code></a></li>
+</ul>
+<p>Clone the repository:</p>
+<pre><code class="language-sh">git clone https://github.com/SpecularL2/specular
+git submodule update --init
+cd contracts
+</code></pre>
+<p>Install <code>npm</code> packages and git hooks:</p>
+<pre><code class="language-sh">yarn install
+</code></pre>
+<h2 id="run-tests"><a class="header" href="#run-tests">Run Tests</a></h2>
+<pre><code class="language-sh">forge test
+</code></pre>
+<p>The number of fuzz test runs can be configured in <code>foundry.toml</code>, under the <code>[fuzz]</code> section with parameter <code>runs</code>.</p>
+<h2 id="local-slither-check"><a class="header" href="#local-slither-check">Local Slither Check</a></h2>
+<p>Install <a href="https://github.com/crytic/slither"><code>slither</code></a>:</p>
+<pre><code class="language-sh">pip3 install slither-analyzer
+</code></pre>
+<p>Run slither:</p>
+<pre><code class="language-sh">slither .
+</code></pre>
+<h2 id="run-local-development-node"><a class="header" href="#run-local-development-node">Run Local Development Node</a></h2>
+<pre><code class="language-sh">npx hardhat node
+</code></pre>
+<p>Above command will start a Ethereum node serving as L1.
+It can be accessed via <code>http://localhost:8545</code> or <code>ws://localhost:8545</code>.</p>
+<p>It is configured to mine immediately when there is any transaction, or after 5 seconds idle.</p>
+<p>As a convention, the first funded account is the sequencer, the second is the validator.</p>
+<p>See <code>hardhat.config.js</code> for detailed configuration.</p>
+<p>See <code>deploy/deploy.js</code> for how contracts are deployed and initialized.</p>
+<h2 id="attach-to-local-development-node"><a class="header" href="#attach-to-local-development-node">Attach to Local Development Node</a></h2>
+<pre><code class="language-sh">npx hardhat console
+</code></pre>
+<p>Above command will start a Node.js console.</p>
+<p>You can run <code>const provider = waffle.provider</code> in the console to obtain the ethers.js provider connected to the local development node.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents"><a class="header" href="#contents">Contents</a></h1>
+<ul>
+<li><a href="src/challenge//src/challenge/verifier">verifier</a></li>
+<li><a href="src/challenge/Challenge.sol/contract.Challenge.html">Challenge</a></li>
+<li><a href="src/challenge/ChallengeLib.sol/contract.ChallengeLib.html">ChallengeLib</a></li>
+<li><a href="src/challenge/IChallenge.sol/contract.IChallenge.html">IChallenge</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents-1"><a class="header" href="#contents-1">Contents</a></h1>
+<ul>
+<li><a href="src/challenge/verifier/IVerificationContext.sol/contract.IVerificationContext.html">IVerificationContext</a></li>
+<li><a href="src/challenge/verifier/IVerifier.sol/contract.IVerifier.html">IVerifier</a></li>
+<li><a href="src/challenge/verifier/Verifier.sol/contract.Verifier.html">Verifier</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iverificationcontext"><a class="header" href="#iverificationcontext">IVerificationContext</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/challenge/verifier/IVerificationContext.sol">Git Source</a></p>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="getblockhash"><a class="header" href="#getblockhash">getBlockHash</a></h3>
+<pre><code class="language-solidity">function getBlockHash(uint8 number) external view returns (bytes32);
+</code></pre>
+<h3 id="getcoinbase"><a class="header" href="#getcoinbase">getCoinbase</a></h3>
+<pre><code class="language-solidity">function getCoinbase() external view returns (address);
+</code></pre>
+<h3 id="gettimestamp"><a class="header" href="#gettimestamp">getTimestamp</a></h3>
+<pre><code class="language-solidity">function getTimestamp() external view returns (uint256);
+</code></pre>
+<h3 id="getblocknumber"><a class="header" href="#getblocknumber">getBlockNumber</a></h3>
+<pre><code class="language-solidity">function getBlockNumber() external view returns (uint256);
+</code></pre>
+<h3 id="getdifficulty"><a class="header" href="#getdifficulty">getDifficulty</a></h3>
+<pre><code class="language-solidity">function getDifficulty() external view returns (uint256);
+</code></pre>
+<h3 id="getgaslimit"><a class="header" href="#getgaslimit">getGasLimit</a></h3>
+<pre><code class="language-solidity">function getGasLimit() external view returns (uint64);
+</code></pre>
+<h3 id="getchainid"><a class="header" href="#getchainid">getChainID</a></h3>
+<pre><code class="language-solidity">function getChainID() external view returns (uint256);
+</code></pre>
+<h3 id="getbasefee"><a class="header" href="#getbasefee">getBaseFee</a></h3>
+<pre><code class="language-solidity">function getBaseFee() external view returns (uint256);
+</code></pre>
+<h3 id="getstateroot"><a class="header" href="#getstateroot">getStateRoot</a></h3>
+<pre><code class="language-solidity">function getStateRoot() external view returns (bytes32);
+</code></pre>
+<h3 id="getendstateroot"><a class="header" href="#getendstateroot">getEndStateRoot</a></h3>
+<pre><code class="language-solidity">function getEndStateRoot() external view returns (bytes32);
+</code></pre>
+<h3 id="getorigin"><a class="header" href="#getorigin">getOrigin</a></h3>
+<pre><code class="language-solidity">function getOrigin() external view returns (address);
+</code></pre>
+<h3 id="getrecipient"><a class="header" href="#getrecipient">getRecipient</a></h3>
+<pre><code class="language-solidity">function getRecipient() external view returns (address);
+</code></pre>
+<h3 id="gettxntype"><a class="header" href="#gettxntype">getTxnType</a></h3>
+<pre><code class="language-solidity">function getTxnType() external view returns (TxnType);
+</code></pre>
+<h3 id="getvalue"><a class="header" href="#getvalue">getValue</a></h3>
+<pre><code class="language-solidity">function getValue() external view returns (uint256);
+</code></pre>
+<h3 id="getgas"><a class="header" href="#getgas">getGas</a></h3>
+<pre><code class="language-solidity">function getGas() external view returns (uint256);
+</code></pre>
+<h3 id="getgasprice"><a class="header" href="#getgasprice">getGasPrice</a></h3>
+<pre><code class="language-solidity">function getGasPrice() external view returns (uint256);
+</code></pre>
+<h3 id="getinput"><a class="header" href="#getinput">getInput</a></h3>
+<pre><code class="language-solidity">function getInput() external view returns (bytes memory);
+</code></pre>
+<h3 id="getinputsize"><a class="header" href="#getinputsize">getInputSize</a></h3>
+<pre><code class="language-solidity">function getInputSize() external view returns (uint64);
+</code></pre>
+<h3 id="getinputroot"><a class="header" href="#getinputroot">getInputRoot</a></h3>
+<pre><code class="language-solidity">function getInputRoot() external view returns (bytes32);
+</code></pre>
+<h3 id="getcodemerklefrominput"><a class="header" href="#getcodemerklefrominput">getCodeMerkleFromInput</a></h3>
+<pre><code class="language-solidity">function getCodeMerkleFromInput() external view returns (bytes32);
+</code></pre>
+<h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
+<h3 id="txntype"><a class="header" href="#txntype">TxnType</a></h3>
+<pre><code class="language-solidity">enum TxnType {
+    TRANSFER,
+    CREATE,
+    CALL
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iverifier"><a class="header" href="#iverifier">IVerifier</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/challenge/verifier/IVerifier.sol">Git Source</a></p>
+<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
+<h3 id="verifyonestepproof"><a class="header" href="#verifyonestepproof">verifyOneStepProof</a></h3>
+<pre><code class="language-solidity">function verifyOneStepProof(IVerificationContext ctx, bytes32 currStateHash, bytes calldata encodedProof)
+    external
+    view
+    returns (bytes32 nextStateHash);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="verifier"><a class="header" href="#verifier">Verifier</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/challenge/verifier/Verifier.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="src/challenge/verifier/Verifier.sol//src/challenge/verifier/IVerifier.sol/contract.IVerifier.html">IVerifier</a>, Initializable, UUPSUpgradeable, OwnableUpgradeable</p>
+<h2 id="functions-2"><a class="header" href="#functions-2">Functions</a></h2>
+<h3 id="initialize"><a class="header" href="#initialize">initialize</a></h3>
+<pre><code class="language-solidity">function initialize() public initializer;
+</code></pre>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<pre><code class="language-solidity">constructor();
+</code></pre>
+<h3 id="_authorizeupgrade"><a class="header" href="#_authorizeupgrade">_authorizeUpgrade</a></h3>
+<pre><code class="language-solidity">function _authorizeUpgrade(address) internal override onlyOwner;
+</code></pre>
+<h3 id="verifyonestepproof-1"><a class="header" href="#verifyonestepproof-1">verifyOneStepProof</a></h3>
+<pre><code class="language-solidity">function verifyOneStepProof(IVerificationContext, bytes32, bytes calldata)
+    external
+    pure
+    override
+    returns (bytes32 nextStateHash);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="challenge"><a class="header" href="#challenge">Challenge</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/challenge/Challenge.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="src/challenge/Challenge.sol//src/challenge/IChallenge.sol/contract.IChallenge.html">IChallenge</a></p>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="chal_init_state"><a class="header" href="#chal_init_state">CHAL_INIT_STATE</a></h3>
+<pre><code class="language-solidity">string private constant CHAL_INIT_STATE = &quot;CHAL_INIT_STATE&quot;;
+</code></pre>
+<h3 id="bis_deadline"><a class="header" href="#bis_deadline">BIS_DEADLINE</a></h3>
+<pre><code class="language-solidity">string private constant BIS_DEADLINE = &quot;BIS_DEADLINE&quot;;
+</code></pre>
+<h3 id="bis_sender"><a class="header" href="#bis_sender">BIS_SENDER</a></h3>
+<pre><code class="language-solidity">string private constant BIS_SENDER = &quot;BIS_SENDER&quot;;
+</code></pre>
+<h3 id="bis_prev"><a class="header" href="#bis_prev">BIS_PREV</a></h3>
+<pre><code class="language-solidity">string private constant BIS_PREV = &quot;BIS_PREV&quot;;
+</code></pre>
+<h3 id="timeout_deadline"><a class="header" href="#timeout_deadline">TIMEOUT_DEADLINE</a></h3>
+<pre><code class="language-solidity">string private constant TIMEOUT_DEADLINE = &quot;TIMEOUT_DEADLINE&quot;;
+</code></pre>
+<h3 id="unreachable_assertion"><a class="header" href="#unreachable_assertion">UNREACHABLE_ASSERTION</a></h3>
+<pre><code class="language-solidity">bytes32 private constant UNREACHABLE_ASSERTION = bytes32(uint256(0));
+</code></pre>
+<h3 id="max_bisection_degree"><a class="header" href="#max_bisection_degree">MAX_BISECTION_DEGREE</a></h3>
+<pre><code class="language-solidity">uint256 private constant MAX_BISECTION_DEGREE = 2;
+</code></pre>
+<h3 id="resultreceiver"><a class="header" href="#resultreceiver">resultReceiver</a></h3>
+<pre><code class="language-solidity">address internal resultReceiver;
+</code></pre>
+<h3 id="verifier-1"><a class="header" href="#verifier-1">verifier</a></h3>
+<pre><code class="language-solidity">IVerifier internal verifier;
+</code></pre>
+<h3 id="defender"><a class="header" href="#defender">defender</a></h3>
+<pre><code class="language-solidity">address public defender;
+</code></pre>
+<h3 id="challenger"><a class="header" href="#challenger">challenger</a></h3>
+<pre><code class="language-solidity">address public challenger;
+</code></pre>
+<h3 id="lastmoveblock"><a class="header" href="#lastmoveblock">lastMoveBlock</a></h3>
+<pre><code class="language-solidity">uint256 public lastMoveBlock;
+</code></pre>
+<h3 id="defendertimeleft"><a class="header" href="#defendertimeleft">defenderTimeLeft</a></h3>
+<pre><code class="language-solidity">uint256 public defenderTimeLeft;
+</code></pre>
+<h3 id="challengertimeleft"><a class="header" href="#challengertimeleft">challengerTimeLeft</a></h3>
+<pre><code class="language-solidity">uint256 public challengerTimeLeft;
+</code></pre>
+<h3 id="turn"><a class="header" href="#turn">turn</a></h3>
+<pre><code class="language-solidity">Turn public turn;
+</code></pre>
+<h3 id="bisectionhash"><a class="header" href="#bisectionhash">bisectionHash</a></h3>
+<pre><code class="language-solidity">bytes32 public bisectionHash;
+</code></pre>
+<h3 id="startstatehash"><a class="header" href="#startstatehash">startStateHash</a></h3>
+<pre><code class="language-solidity">bytes32 private startStateHash;
+</code></pre>
+<h3 id="endstatehash"><a class="header" href="#endstatehash">endStateHash</a></h3>
+<pre><code class="language-solidity">bytes32 private endStateHash;
+</code></pre>
+<h2 id="functions-3"><a class="header" href="#functions-3">Functions</a></h2>
+<h3 id="onlyonturn"><a class="header" href="#onlyonturn">onlyOnTurn</a></h3>
+<p>Pre-condition: <code>msg.sender</code> is correct and still has time remaining.
+Post-condition: <code>turn</code> changes and <code>lastMoveBlock</code> set to current <code>block.number</code>.</p>
+<pre><code class="language-solidity">modifier onlyOnTurn();
+</code></pre>
+<h3 id="postinitialization"><a class="header" href="#postinitialization">postInitialization</a></h3>
+<p>Ensures challenge has been initialized.</p>
+<pre><code class="language-solidity">modifier postInitialization();
+</code></pre>
+<h3 id="initialize-1"><a class="header" href="#initialize-1">initialize</a></h3>
+<pre><code class="language-solidity">function initialize(
+    address _defender,
+    address _challenger,
+    IVerifier _verifier,
+    address _resultReceiver,
+    bytes32 _startStateHash,
+    bytes32 _endStateHash
+) external override;
+</code></pre>
+<h3 id="initializechallengelength"><a class="header" href="#initializechallengelength">initializeChallengeLength</a></h3>
+<pre><code class="language-solidity">function initializeChallengeLength(uint256 _numSteps) external override onlyOnTurn;
+</code></pre>
+<h3 id="bisectexecution"><a class="header" href="#bisectexecution">bisectExecution</a></h3>
+<pre><code class="language-solidity">function bisectExecution(
+    bytes32[] calldata bisection,
+    uint256 challengedSegmentIndex,
+    bytes32[] calldata prevBisection,
+    uint256 prevChallengedSegmentStart,
+    uint256 prevChallengedSegmentLength
+) external override onlyOnTurn postInitialization;
+</code></pre>
+<h3 id="verifyonestepproof-2"><a class="header" href="#verifyonestepproof-2">verifyOneStepProof</a></h3>
+<pre><code class="language-solidity">function verifyOneStepProof(
+    bytes calldata proof,
+    uint256 challengedStepIndex,
+    bytes32[] calldata prevBisection,
+    uint256 prevChallengedSegmentStart,
+    uint256 prevChallengedSegmentLength
+) external override onlyOnTurn;
+</code></pre>
+<h3 id="timeout"><a class="header" href="#timeout">timeout</a></h3>
+<pre><code class="language-solidity">function timeout() external override;
+</code></pre>
+<h3 id="currentresponder"><a class="header" href="#currentresponder">currentResponder</a></h3>
+<pre><code class="language-solidity">function currentResponder() public view override returns (address);
+</code></pre>
+<h3 id="currentrespondertimeleft"><a class="header" href="#currentrespondertimeleft">currentResponderTimeLeft</a></h3>
+<pre><code class="language-solidity">function currentResponderTimeLeft() public view override returns (uint256);
+</code></pre>
+<h3 id="_currentwin"><a class="header" href="#_currentwin">_currentWin</a></h3>
+<pre><code class="language-solidity">function _currentWin(CompletionReason reason) private;
+</code></pre>
+<h3 id="_asserterwin"><a class="header" href="#_asserterwin">_asserterWin</a></h3>
+<pre><code class="language-solidity">function _asserterWin(CompletionReason reason) private;
+</code></pre>
+<h3 id="_challengerwin"><a class="header" href="#_challengerwin">_challengerWin</a></h3>
+<pre><code class="language-solidity">function _challengerWin(CompletionReason reason) private;
+</code></pre>
+<h2 id="enums-1"><a class="header" href="#enums-1">Enums</a></h2>
+<h3 id="turn-1"><a class="header" href="#turn-1">Turn</a></h3>
+<pre><code class="language-solidity">enum Turn {
+    NoChallenge,
+    Challenger,
+    Defender
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="challengelib"><a class="header" href="#challengelib">ChallengeLib</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/challenge/ChallengeLib.sol">Git Source</a></p>
+<h2 id="functions-4"><a class="header" href="#functions-4">Functions</a></h2>
+<h3 id="initialbisectionhash"><a class="header" href="#initialbisectionhash">initialBisectionHash</a></h3>
+<p>Computes the initial bisection hash.</p>
+<pre><code class="language-solidity">function initialBisectionHash(bytes32 startStateHash, bytes32 endStateHash, uint256 numSteps)
+    internal
+    pure
+    returns (bytes32);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>startStateHash</code></td><td><code>bytes32</code></td><td>Hash of agreed-upon start state.</td></tr>
+<tr><td><code>endStateHash</code></td><td><code>bytes32</code></td><td>Disagreed-upon end state.</td></tr>
+<tr><td><code>numSteps</code></td><td><code>uint256</code></td><td>Number of steps from the end of <code>startState</code> to the end of <code>endState</code>.</td></tr>
+</tbody></table>
+</div>
+<h3 id="computebisectionhash"><a class="header" href="#computebisectionhash">computeBisectionHash</a></h3>
+<p>Computes H(bisection || segmentStart || segmentLength)</p>
+<pre><code class="language-solidity">function computeBisectionHash(
+    bytes32[] memory bisection,
+    uint256 challengedSegmentStart,
+    uint256 challengedSegmentLength
+) internal pure returns (bytes32);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>bisection</code></td><td><code>bytes32[]</code></td><td>Array of stateHashes. First element is the last agreed upon state hash.</td></tr>
+<tr><td><code>challengedSegmentStart</code></td><td><code>uint256</code></td><td>The number of steps preceding <code>bisection[1]</code>, relative to the assertion being challenged.</td></tr>
+<tr><td><code>challengedSegmentLength</code></td><td><code>uint256</code></td><td>Length of bisected segment (in steps), from the start of bisection[1] to the end of bisection[-1].</td></tr>
+</tbody></table>
+</div>
+<h3 id="firstsegmentlength"><a class="header" href="#firstsegmentlength">firstSegmentLength</a></h3>
+<p>Returns length of first segment in a bisection.</p>
+<pre><code class="language-solidity">function firstSegmentLength(uint256 length, uint256 bisectionDegree) internal pure returns (uint256);
+</code></pre>
+<h3 id="othersegmentlength"><a class="header" href="#othersegmentlength">otherSegmentLength</a></h3>
+<p>Returns length of a segment (after first) in a bisection.</p>
+<pre><code class="language-solidity">function otherSegmentLength(uint256 length, uint256 bisectionDegree) internal pure returns (uint256);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ichallenge"><a class="header" href="#ichallenge">IChallenge</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/challenge/IChallenge.sol">Git Source</a></p>
+<p>Protocol execution:
+<code>initialize</code> (challenger, via Rollup) -&gt;
+<code>initializeChallengeLength</code> (defender) -&gt;
+<code>bisectExecution</code> (challenger, defender -- alternating) -&gt;
+<code>verifyOneStepProof</code></p>
+<h2 id="functions-5"><a class="header" href="#functions-5">Functions</a></h2>
+<h3 id="initialize-2"><a class="header" href="#initialize-2">initialize</a></h3>
+<p>Initializes contract.</p>
+<pre><code class="language-solidity">function initialize(
+    address _defender,
+    address _challenger,
+    IVerifier _verifier,
+    address _resultReceiver,
+    bytes32 _startStateHash,
+    bytes32 _endStateHash
+) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_defender</code></td><td><code>address</code></td><td>Defending party.</td></tr>
+<tr><td><code>_challenger</code></td><td><code>address</code></td><td>Challenging party. Challenger starts.</td></tr>
+<tr><td><code>_verifier</code></td><td><code>IVerifier</code></td><td>Address of the verifier contract.</td></tr>
+<tr><td><code>_resultReceiver</code></td><td><code>address</code></td><td>Address of contract that will receive the outcome (via callback <code>completeChallenge</code>).</td></tr>
+<tr><td><code>_startStateHash</code></td><td><code>bytes32</code></td><td>Bisection root being challenged.</td></tr>
+<tr><td><code>_endStateHash</code></td><td><code>bytes32</code></td><td>Bisection root being challenged.</td></tr>
+</tbody></table>
+</div>
+<h3 id="initializechallengelength-1"><a class="header" href="#initializechallengelength-1">initializeChallengeLength</a></h3>
+<p>Initializes the length of the challenge. Must be called by defender before bisection rounds begin.</p>
+<pre><code class="language-solidity">function initializeChallengeLength(uint256 _numSteps) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_numSteps</code></td><td><code>uint256</code></td><td>Number of steps executed from the start of the assertion to its end. If this parameter is incorrect, the defender will be slashed (assuming successful execution of the protocol by the challenger).</td></tr>
+</tbody></table>
+</div>
+<h3 id="bisectexecution-1"><a class="header" href="#bisectexecution-1">bisectExecution</a></h3>
+<p>Bisects a segment. The challenged segment is defined by: {<code>challengedSegmentStart</code>, <code>challengedSegmentLength</code>, <code>bisection[0]</code>, <code>oldEndHash</code>}</p>
+<pre><code class="language-solidity">function bisectExecution(
+    bytes32[] calldata bisection,
+    uint256 challengedSegmentIndex,
+    bytes32[] calldata prevBisection,
+    uint256 prevChallengedSegmentStart,
+    uint256 prevChallengedSegmentLength
+) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>bisection</code></td><td><code>bytes32[]</code></td><td>Bisection of challenged segment. Each element is a state hash (see <code>ChallengeLib.stateHash</code>). The first element is the last agreed upon state hash. Must be of length MAX_BISECTION_LENGTH for all rounds except the last. In the last round, the bisection segments must be single steps.</td></tr>
+<tr><td><code>challengedSegmentIndex</code></td><td><code>uint256</code></td><td>Index into <code>prevBisection</code>. Must be greater than 0 (since the first is agreed upon).</td></tr>
+<tr><td><code>prevBisection</code></td><td><code>bytes32[]</code></td><td>Bisection in the preceding round.</td></tr>
+<tr><td><code>prevChallengedSegmentStart</code></td><td><code>uint256</code></td><td>Offset of the segment challenged in the preceding round (in steps). Note: this is relative to the assertion being challenged (i.e. always between 0 and the initial <code>numSteps</code>).</td></tr>
+<tr><td><code>prevChallengedSegmentLength</code></td><td><code>uint256</code></td><td>Length of the segment challenged in the preceding round (in steps).</td></tr>
+</tbody></table>
+</div>
+<h3 id="verifyonestepproof-3"><a class="header" href="#verifyonestepproof-3">verifyOneStepProof</a></h3>
+<p>Verifies one step proof and completes challenge protocol.</p>
+<pre><code class="language-solidity">function verifyOneStepProof(
+    bytes memory proof,
+    uint256 challengedStepIndex,
+    bytes32[] calldata prevBisection,
+    uint256 prevChallengedSegmentStart,
+    uint256 prevChallengedSegmentLength
+) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>proof</code></td><td><code>bytes</code></td><td>TODO.</td></tr>
+<tr><td><code>challengedStepIndex</code></td><td><code>uint256</code></td><td>Index into <code>prevBisection</code>. Must be greater than 0 (since the first is agreed upon).</td></tr>
+<tr><td><code>prevBisection</code></td><td><code>bytes32[]</code></td><td>Bisection in the preceding round. Each segment must now be of length 1 (i.e. a single step).</td></tr>
+<tr><td><code>prevChallengedSegmentStart</code></td><td><code>uint256</code></td><td>Offset of the segment challenged in the preceding round (in steps). Note: this is relative to the assertion being challenged (i.e. always between 0 and the initial <code>numSteps</code>).</td></tr>
+<tr><td><code>prevChallengedSegmentLength</code></td><td><code>uint256</code></td><td>Length of the segment challenged in the preceding round (in steps).</td></tr>
+</tbody></table>
+</div>
+<h3 id="timeout-1"><a class="header" href="#timeout-1">timeout</a></h3>
+<p>Triggers completion of challenge protocol if a responder timed out.</p>
+<pre><code class="language-solidity">function timeout() external;
+</code></pre>
+<h3 id="currentresponder-1"><a class="header" href="#currentresponder-1">currentResponder</a></h3>
+<pre><code class="language-solidity">function currentResponder() external view returns (address);
+</code></pre>
+<h3 id="currentrespondertimeleft-1"><a class="header" href="#currentrespondertimeleft-1">currentResponderTimeLeft</a></h3>
+<pre><code class="language-solidity">function currentResponderTimeLeft() external view returns (uint256);
+</code></pre>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<h3 id="challengecompleted"><a class="header" href="#challengecompleted">ChallengeCompleted</a></h3>
+<pre><code class="language-solidity">event ChallengeCompleted(address winner, address loser, CompletionReason reason);
+</code></pre>
+<h3 id="bisected"><a class="header" href="#bisected">Bisected</a></h3>
+<pre><code class="language-solidity">event Bisected(bytes32 challengeState, uint256 challengedSegmentStart, uint256 challengedSegmentLength);
+</code></pre>
+<h2 id="enums-2"><a class="header" href="#enums-2">Enums</a></h2>
+<h3 id="completionreason"><a class="header" href="#completionreason">CompletionReason</a></h3>
+<pre><code class="language-solidity">enum CompletionReason {
+    OSP_VERIFIED,
+    TIMEOUT
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents-2"><a class="header" href="#contents-2">Contents</a></h1>
+<ul>
+<li><a href="src/libraries/BytesLib.sol/contract.BytesLib.html">BytesLib</a></li>
+<li><a href="src/libraries/DeserializationLib.sol/contract.DeserializationLib.html">DeserializationLib</a></li>
+<li><a href="src/libraries/Errors.sol/error.NotRollup.html">NotRollup</a></li>
+<li><a href="src/libraries/Errors.sol/error.NotChallenge.html">NotChallenge</a></li>
+<li><a href="src/libraries/Errors.sol/error.NotSequencer.html">NotSequencer</a></li>
+<li><a href="src/libraries/Errors.sol/error.ZeroAddress.html">ZeroAddress</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="byteslib"><a class="header" href="#byteslib">BytesLib</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/libraries/BytesLib.sol">Git Source</a></p>
+<h2 id="functions-6"><a class="header" href="#functions-6">Functions</a></h2>
+<h3 id="concat"><a class="header" href="#concat">concat</a></h3>
+<pre><code class="language-solidity">function concat(bytes memory _preBytes, bytes memory _postBytes) internal pure returns (bytes memory);
+</code></pre>
+<h3 id="concatstorage"><a class="header" href="#concatstorage">concatStorage</a></h3>
+<pre><code class="language-solidity">function concatStorage(bytes storage _preBytes, bytes memory _postBytes) internal;
+</code></pre>
+<h3 id="slice"><a class="header" href="#slice">slice</a></h3>
+<pre><code class="language-solidity">function slice(bytes memory _bytes, uint256 _start, uint256 _length) internal pure returns (bytes memory);
+</code></pre>
+<h3 id="toaddress"><a class="header" href="#toaddress">toAddress</a></h3>
+<pre><code class="language-solidity">function toAddress(bytes memory _bytes, uint256 _start) internal pure returns (address);
+</code></pre>
+<h3 id="touint8"><a class="header" href="#touint8">toUint8</a></h3>
+<pre><code class="language-solidity">function toUint8(bytes memory _bytes, uint256 _start) internal pure returns (uint8);
+</code></pre>
+<h3 id="touint16"><a class="header" href="#touint16">toUint16</a></h3>
+<pre><code class="language-solidity">function toUint16(bytes memory _bytes, uint256 _start) internal pure returns (uint16);
+</code></pre>
+<h3 id="touint32"><a class="header" href="#touint32">toUint32</a></h3>
+<pre><code class="language-solidity">function toUint32(bytes memory _bytes, uint256 _start) internal pure returns (uint32);
+</code></pre>
+<h3 id="touint64"><a class="header" href="#touint64">toUint64</a></h3>
+<pre><code class="language-solidity">function toUint64(bytes memory _bytes, uint256 _start) internal pure returns (uint64);
+</code></pre>
+<h3 id="touint96"><a class="header" href="#touint96">toUint96</a></h3>
+<pre><code class="language-solidity">function toUint96(bytes memory _bytes, uint256 _start) internal pure returns (uint96);
+</code></pre>
+<h3 id="touint128"><a class="header" href="#touint128">toUint128</a></h3>
+<pre><code class="language-solidity">function toUint128(bytes memory _bytes, uint256 _start) internal pure returns (uint128);
+</code></pre>
+<h3 id="touint256"><a class="header" href="#touint256">toUint256</a></h3>
+<pre><code class="language-solidity">function toUint256(bytes memory _bytes, uint256 _start) internal pure returns (uint256);
+</code></pre>
+<h3 id="tobytes32"><a class="header" href="#tobytes32">toBytes32</a></h3>
+<pre><code class="language-solidity">function toBytes32(bytes memory _bytes, uint256 _start) internal pure returns (bytes32);
+</code></pre>
+<h3 id="equal"><a class="header" href="#equal">equal</a></h3>
+<pre><code class="language-solidity">function equal(bytes memory _preBytes, bytes memory _postBytes) internal pure returns (bool);
+</code></pre>
+<h3 id="equalstorage"><a class="header" href="#equalstorage">equalStorage</a></h3>
+<pre><code class="language-solidity">function equalStorage(bytes storage _preBytes, bytes memory _postBytes) internal view returns (bool);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="deserializationlib"><a class="header" href="#deserializationlib">DeserializationLib</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/libraries/DeserializationLib.sol">Git Source</a></p>
+<h2 id="functions-7"><a class="header" href="#functions-7">Functions</a></h2>
+<h3 id="deserializeaddress"><a class="header" href="#deserializeaddress">deserializeAddress</a></h3>
+<pre><code class="language-solidity">function deserializeAddress(bytes memory data, uint256 startOffset) internal pure returns (uint256, address);
+</code></pre>
+<h3 id="deserializeuint256"><a class="header" href="#deserializeuint256">deserializeUint256</a></h3>
+<pre><code class="language-solidity">function deserializeUint256(bytes memory data, uint256 startOffset) internal pure returns (uint256, uint256);
+</code></pre>
+<h3 id="deserializebytes32"><a class="header" href="#deserializebytes32">deserializeBytes32</a></h3>
+<pre><code class="language-solidity">function deserializeBytes32(bytes memory data, uint256 startOffset) internal pure returns (uint256, bytes32);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notrollup"><a class="header" href="#notrollup">NotRollup</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/libraries/Errors.sol">Git Source</a></p>
+<p><em>Thrown when unauthorized (!rollup) address calls an only-rollup function</em></p>
+<pre><code class="language-solidity">error NotRollup(address sender, address rollup);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notchallenge"><a class="header" href="#notchallenge">NotChallenge</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/libraries/Errors.sol">Git Source</a></p>
+<p><em>Thrown when unauthorized (!challenge) address calls an only-challenge function</em></p>
+<pre><code class="language-solidity">error NotChallenge(address sender, address challenge);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notsequencer"><a class="header" href="#notsequencer">NotSequencer</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/libraries/Errors.sol">Git Source</a></p>
+<p><em>Thrown when unauthorized (!sequencer) address calls an only-sequencer function</em></p>
+<pre><code class="language-solidity">error NotSequencer(address sender, address sequencer);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="zeroaddress"><a class="header" href="#zeroaddress">ZeroAddress</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/libraries/Errors.sol">Git Source</a></p>
+<p><em>Thrown when function is called with a zero address argument</em></p>
+<pre><code class="language-solidity">error ZeroAddress();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents-3"><a class="header" href="#contents-3">Contents</a></h1>
+<ul>
+<li><a href="src/pre-deploy/Faucet.sol/contract.Faucet.html">Faucet</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="faucet"><a class="header" href="#faucet">Faucet</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/pre-deploy/Faucet.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+Ownable</p>
+<h2 id="state-variables-1"><a class="header" href="#state-variables-1">State Variables</a></h2>
+<h3 id="amountallowed"><a class="header" href="#amountallowed">amountAllowed</a></h3>
+<pre><code class="language-solidity">uint256 public amountAllowed;
+</code></pre>
+<h3 id="locktime"><a class="header" href="#locktime">lockTime</a></h3>
+<pre><code class="language-solidity">mapping(address =&gt; uint256) public lockTime;
+</code></pre>
+<h2 id="functions-8"><a class="header" href="#functions-8">Functions</a></h2>
+<h3 id="constructor-1"><a class="header" href="#constructor-1">constructor</a></h3>
+<pre><code class="language-solidity">constructor() payable;
+</code></pre>
+<h3 id="receive"><a class="header" href="#receive">receive</a></h3>
+<pre><code class="language-solidity">receive() external payable;
+</code></pre>
+<h3 id="retrieve"><a class="header" href="#retrieve">retrieve</a></h3>
+<pre><code class="language-solidity">function retrieve() external onlyOwner;
+</code></pre>
+<h3 id="requestfunds"><a class="header" href="#requestfunds">requestFunds</a></h3>
+<pre><code class="language-solidity">function requestFunds(address payable _requestor) public payable onlyOwner;
+</code></pre>
+<h2 id="events-1"><a class="header" href="#events-1">Events</a></h2>
+<h3 id="logdepositreceived"><a class="header" href="#logdepositreceived">LogDepositReceived</a></h3>
+<pre><code class="language-solidity">event LogDepositReceived(address, uint256);
+</code></pre>
+<h3 id="logrequestfunds"><a class="header" href="#logrequestfunds">LogRequestFunds</a></h3>
+<pre><code class="language-solidity">event LogRequestFunds(address, uint256);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="assertionmap"><a class="header" href="#assertionmap">AssertionMap</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/AssertionMap.sol">Git Source</a></p>
+<h2 id="state-variables-2"><a class="header" href="#state-variables-2">State Variables</a></h2>
+<h3 id="assertions"><a class="header" href="#assertions">assertions</a></h3>
+<pre><code class="language-solidity">mapping(uint256 =&gt; Assertion) public assertions;
+</code></pre>
+<h3 id="rollupaddress"><a class="header" href="#rollupaddress">rollupAddress</a></h3>
+<pre><code class="language-solidity">address public rollupAddress;
+</code></pre>
+<h2 id="functions-9"><a class="header" href="#functions-9">Functions</a></h2>
+<h3 id="rolluponly"><a class="header" href="#rolluponly">rollupOnly</a></h3>
+<pre><code class="language-solidity">modifier rollupOnly();
+</code></pre>
+<h3 id="constructor-2"><a class="header" href="#constructor-2">constructor</a></h3>
+<pre><code class="language-solidity">constructor(address _rollupAddress);
+</code></pre>
+<h3 id="getstatehash"><a class="header" href="#getstatehash">getStateHash</a></h3>
+<pre><code class="language-solidity">function getStateHash(uint256 assertionID) external view returns (bytes32);
+</code></pre>
+<h3 id="getinboxsize"><a class="header" href="#getinboxsize">getInboxSize</a></h3>
+<pre><code class="language-solidity">function getInboxSize(uint256 assertionID) external view returns (uint256);
+</code></pre>
+<h3 id="getparentid"><a class="header" href="#getparentid">getParentID</a></h3>
+<pre><code class="language-solidity">function getParentID(uint256 assertionID) external view returns (uint256);
+</code></pre>
+<h3 id="getdeadline"><a class="header" href="#getdeadline">getDeadline</a></h3>
+<pre><code class="language-solidity">function getDeadline(uint256 assertionID) external view returns (uint256);
+</code></pre>
+<h3 id="getproposaltime"><a class="header" href="#getproposaltime">getProposalTime</a></h3>
+<pre><code class="language-solidity">function getProposalTime(uint256 assertionID) external view returns (uint256);
+</code></pre>
+<h3 id="getnumstakers"><a class="header" href="#getnumstakers">getNumStakers</a></h3>
+<pre><code class="language-solidity">function getNumStakers(uint256 assertionID) external view returns (uint256);
+</code></pre>
+<h3 id="isstaker"><a class="header" href="#isstaker">isStaker</a></h3>
+<pre><code class="language-solidity">function isStaker(uint256 assertionID, address stakerAddress) external view returns (bool);
+</code></pre>
+<h3 id="createassertion"><a class="header" href="#createassertion">createAssertion</a></h3>
+<pre><code class="language-solidity">function createAssertion(uint256 assertionID, bytes32 stateHash, uint256 inboxSize, uint256 parentID, uint256 deadline)
+    external
+    rollupOnly;
+</code></pre>
+<h3 id="stakeonassertion"><a class="header" href="#stakeonassertion">stakeOnAssertion</a></h3>
+<pre><code class="language-solidity">function stakeOnAssertion(uint256 assertionID, address stakerAddress) external rollupOnly;
+</code></pre>
+<h3 id="deleteassertion"><a class="header" href="#deleteassertion">deleteAssertion</a></h3>
+<pre><code class="language-solidity">function deleteAssertion(uint256 assertionID) external rollupOnly;
+</code></pre>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
+<h3 id="childinboxsizemismatch"><a class="header" href="#childinboxsizemismatch">ChildInboxSizeMismatch</a></h3>
+<pre><code class="language-solidity">error ChildInboxSizeMismatch();
+</code></pre>
+<h3 id="siblingstatehashexists"><a class="header" href="#siblingstatehashexists">SiblingStateHashExists</a></h3>
+<pre><code class="language-solidity">error SiblingStateHashExists();
+</code></pre>
+<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
+<h3 id="assertion"><a class="header" href="#assertion">Assertion</a></h3>
+<pre><code class="language-solidity">struct Assertion {
+    bytes32 stateHash;
+    uint256 inboxSize;
+    uint256 parent;
+    uint256 deadline;
+    uint256 proposalTime;
+    uint256 numStakers;
+    mapping(address =&gt; bool) stakers;
+    uint256 childInboxSize;
+    mapping(bytes32 =&gt; bool) childStateHashes;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="irollup"><a class="header" href="#irollup">IRollup</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/IRollup.sol">Git Source</a></p>
+<h2 id="functions-10"><a class="header" href="#functions-10">Functions</a></h2>
+<h3 id="assertions-1"><a class="header" href="#assertions-1">assertions</a></h3>
+<pre><code class="language-solidity">function assertions() external view returns (AssertionMap);
+</code></pre>
+<h3 id="isstaked"><a class="header" href="#isstaked">isStaked</a></h3>
+<pre><code class="language-solidity">function isStaked(address addr) external view returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>addr</code></td><td><code>address</code></td><td>User address.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>True if address is staked, else False.</td></tr>
+</tbody></table>
+</div>
+<h3 id="currentrequiredstake"><a class="header" href="#currentrequiredstake">currentRequiredStake</a></h3>
+<pre><code class="language-solidity">function currentRequiredStake() external view returns (uint256);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The current required stake amount.</td></tr>
+</tbody></table>
+</div>
+<h3 id="confirmedinboxsize"><a class="header" href="#confirmedinboxsize">confirmedInboxSize</a></h3>
+<pre><code class="language-solidity">function confirmedInboxSize() external view returns (uint256);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>confirmedInboxSize size of inbox confirmed</td></tr>
+</tbody></table>
+</div>
+<h3 id="stake"><a class="header" href="#stake">stake</a></h3>
+<p>Deposits stake on staker's current assertion (or the last confirmed assertion if not currently staked).</p>
+<p>currently use Ether to stake; stakeAmount Token amount to deposit. Must be &gt; than defined threshold if this is a new stake.</p>
+<pre><code class="language-solidity">function stake() external payable;
+</code></pre>
+<h3 id="unstake"><a class="header" href="#unstake">unstake</a></h3>
+<p>Withdraws stakeAmount from staker's stake by if assertion it is staked on is confirmed.</p>
+<pre><code class="language-solidity">function unstake(uint256 stakeAmount) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakeAmount</code></td><td><code>uint256</code></td><td>Token amount to withdraw. Must be &lt;= sender's current stake minus the current required stake.</td></tr>
+</tbody></table>
+</div>
+<h3 id="removestake"><a class="header" href="#removestake">removeStake</a></h3>
+<p>Removes stakerAddress from the set of stakers and withdraws the full stake amount to stakerAddress.
+This can be called by anyone since it is currently necessary to keep the chain progressing.</p>
+<pre><code class="language-solidity">function removeStake(address stakerAddress) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of staker for which to unstake.</td></tr>
+</tbody></table>
+</div>
+<h3 id="advancestake"><a class="header" href="#advancestake">advanceStake</a></h3>
+<p>Advances msg.sender's existing stake to assertionID.</p>
+<pre><code class="language-solidity">function advanceStake(uint256 assertionID) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>assertionID</code></td><td><code>uint256</code></td><td>ID of assertion to advance stake to. Currently this must be a child of the current assertion. TODO: generalize to arbitrary descendants.</td></tr>
+</tbody></table>
+</div>
+<h3 id="withdraw"><a class="header" href="#withdraw">withdraw</a></h3>
+<p>Withdraws all of msg.sender's withdrawable funds.</p>
+<pre><code class="language-solidity">function withdraw() external;
+</code></pre>
+<h3 id="createassertion-1"><a class="header" href="#createassertion-1">createAssertion</a></h3>
+<p>Creates a new DA representing the rollup state after executing a block of transactions (sequenced in SequencerInbox).
+Block is represented by all transactions in range [prevInboxSize, inboxSize]. The latest staked DA of the sender
+is considered to be the predecessor. Moves sender stake onto the new DA.
+The new DA stores the hash of the parameters: H(l2GasUsed || vmHash)</p>
+<pre><code class="language-solidity">function createAssertion(
+    bytes32 vmHash,
+    uint256 inboxSize,
+    uint256 l2GasUsed,
+    bytes32 prevVMHash,
+    uint256 prevL2GasUsed
+) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>vmHash</code></td><td><code>bytes32</code></td><td>New VM hash.</td></tr>
+<tr><td><code>inboxSize</code></td><td><code>uint256</code></td><td>Size of inbox corresponding to assertion (number of transactions).</td></tr>
+<tr><td><code>l2GasUsed</code></td><td><code>uint256</code></td><td>Total L2 gas used as of the end of this assertion's last transaction.</td></tr>
+<tr><td><code>prevVMHash</code></td><td><code>bytes32</code></td><td>Predecessor assertion VM hash (required because it does not get stored in the assertion).</td></tr>
+<tr><td><code>prevL2GasUsed</code></td><td><code>uint256</code></td><td>Predecessor assertion L2 gas used (required because it does not get stored in the assertion).</td></tr>
+</tbody></table>
+</div>
+<h3 id="challengeassertion"><a class="header" href="#challengeassertion">challengeAssertion</a></h3>
+<p>Initiates a dispute between a defender and challenger on an unconfirmed DA.</p>
+<pre><code class="language-solidity">function challengeAssertion(address[2] calldata players, uint256[2] calldata assertionIDs) external returns (address);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>players</code></td><td><code>address[2]</code></td><td>Defender (first) and challenger (second) addresses. Must be staked on DAs on different branches.</td></tr>
+<tr><td><code>assertionIDs</code></td><td><code>uint256[2]</code></td><td>Assertion IDs of the players engaged in the challenge. The first ID should be the earlier-created and is the one being challenged.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>address</code></td><td>Newly created challenge contract address.</td></tr>
+</tbody></table>
+</div>
+<h3 id="confirmfirstunresolvedassertion"><a class="header" href="#confirmfirstunresolvedassertion">confirmFirstUnresolvedAssertion</a></h3>
+<p>Confirms first unresolved assertion. Assertion is confirmed if and only if:
+(1) there is at least one staker, and
+(2) challenge period has passed, and
+(3) predecessor has been confirmed, and
+(4) all stakers are staked on the assertion.</p>
+<pre><code class="language-solidity">function confirmFirstUnresolvedAssertion() external;
+</code></pre>
+<h3 id="rejectfirstunresolvedassertion"><a class="header" href="#rejectfirstunresolvedassertion">rejectFirstUnresolvedAssertion</a></h3>
+<p>Rejects first unresolved assertion. Assertion is rejected if and only if:
+(1) all of the following are true:
+(a) challenge period has passed, and
+(b) at least one staker exists, and
+(c) no staker remains staked on the assertion (all have been destroyed).
+OR
+(2) predecessor has been rejected</p>
+<pre><code class="language-solidity">function rejectFirstUnresolvedAssertion(address stakerAddress) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of a staker staked on a different branch to the first unresolved assertion. If the first unresolved assertion's parent is confirmed, this parameter is used to establish that a staker exists on a different branch of the assertion chain. This parameter is ignored when the parent of the first unresolved assertion is not the last confirmed assertion.</td></tr>
+</tbody></table>
+</div>
+<h3 id="completechallenge"><a class="header" href="#completechallenge">completeChallenge</a></h3>
+<p>Completes ongoing challenge. Callback, called by a challenge contract.</p>
+<pre><code class="language-solidity">function completeChallenge(address winner, address loser) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>winner</code></td><td><code>address</code></td><td>Address of winning staker.</td></tr>
+<tr><td><code>loser</code></td><td><code>address</code></td><td>Address of losing staker.</td></tr>
+</tbody></table>
+</div>
+<h2 id="events-2"><a class="header" href="#events-2">Events</a></h2>
+<h3 id="assertioncreated"><a class="header" href="#assertioncreated">AssertionCreated</a></h3>
+<pre><code class="language-solidity">event AssertionCreated(uint256 assertionID, address asserterAddr, bytes32 vmHash, uint256 inboxSize, uint256 l2GasUsed);
+</code></pre>
+<h3 id="assertionchallenged"><a class="header" href="#assertionchallenged">AssertionChallenged</a></h3>
+<pre><code class="language-solidity">event AssertionChallenged(uint256 assertionID, address challengeAddr);
+</code></pre>
+<h3 id="assertionconfirmed"><a class="header" href="#assertionconfirmed">AssertionConfirmed</a></h3>
+<pre><code class="language-solidity">event AssertionConfirmed(uint256 assertionID);
+</code></pre>
+<h3 id="assertionrejected"><a class="header" href="#assertionrejected">AssertionRejected</a></h3>
+<pre><code class="language-solidity">event AssertionRejected(uint256 assertionID);
+</code></pre>
+<h3 id="stakerstaked"><a class="header" href="#stakerstaked">StakerStaked</a></h3>
+<pre><code class="language-solidity">event StakerStaked(address stakerAddr, uint256 assertionID);
+</code></pre>
+<h2 id="errors-1"><a class="header" href="#errors-1">Errors</a></h2>
+<h3 id="notstaked"><a class="header" href="#notstaked">NotStaked</a></h3>
+<p><em>Thrown when address that have not staked any token calls a only-staked function</em></p>
+<pre><code class="language-solidity">error NotStaked();
+</code></pre>
+<h3 id="insufficientstake"><a class="header" href="#insufficientstake">InsufficientStake</a></h3>
+<p><em>Thrown when the function is called with Insufficient Stake</em></p>
+<pre><code class="language-solidity">error InsufficientStake();
+</code></pre>
+<h3 id="stakedonunconfirmedassertion"><a class="header" href="#stakedonunconfirmedassertion">StakedOnUnconfirmedAssertion</a></h3>
+<p><em>Thrown when the caller is staked on unconfirmed assertion.</em></p>
+<pre><code class="language-solidity">error StakedOnUnconfirmedAssertion();
+</code></pre>
+<h3 id="transferfailed"><a class="header" href="#transferfailed">TransferFailed</a></h3>
+<p><em>Thrown when transfer fails</em></p>
+<pre><code class="language-solidity">error TransferFailed();
+</code></pre>
+<h3 id="assertionoutofrange"><a class="header" href="#assertionoutofrange">AssertionOutOfRange</a></h3>
+<p><em>Thrown when a staker tries to advance stake to invalid assertionId.</em></p>
+<pre><code class="language-solidity">error AssertionOutOfRange();
+</code></pre>
+<h3 id="parentassertionunstaked"><a class="header" href="#parentassertionunstaked">ParentAssertionUnstaked</a></h3>
+<p><em>Thrown when a staker tries to advance stake to non-child assertion</em></p>
+<pre><code class="language-solidity">error ParentAssertionUnstaked();
+</code></pre>
+<h3 id="minimumassertionperiodnotpassed"><a class="header" href="#minimumassertionperiodnotpassed">MinimumAssertionPeriodNotPassed</a></h3>
+<p><em>Thrown when a sender tries to create assertion before the minimum assertion time period</em></p>
+<pre><code class="language-solidity">error MinimumAssertionPeriodNotPassed();
+</code></pre>
+<h3 id="maxgaslimitexceeded"><a class="header" href="#maxgaslimitexceeded">MaxGasLimitExceeded</a></h3>
+<p><em>Thrown when the L2 gas used by the assertion is more the max allowed limit.</em></p>
+<pre><code class="language-solidity">error MaxGasLimitExceeded();
+</code></pre>
+<h3 id="previousstatehash"><a class="header" href="#previousstatehash">PreviousStateHash</a></h3>
+<p><em>Thrown when parent's statehash is not equal to the start state(or previous state)/</em></p>
+<pre><code class="language-solidity">error PreviousStateHash();
+</code></pre>
+<h3 id="emptyassertion"><a class="header" href="#emptyassertion">EmptyAssertion</a></h3>
+<p><em>Thrown when a sender tries to create assertion without any tx.</em></p>
+<pre><code class="language-solidity">error EmptyAssertion();
+</code></pre>
+<h3 id="inboxreadlimitexceeded"><a class="header" href="#inboxreadlimitexceeded">InboxReadLimitExceeded</a></h3>
+<p><em>Thrown when the requested assertion read past the end of current Inbox.</em></p>
+<pre><code class="language-solidity">error InboxReadLimitExceeded();
+</code></pre>
+<h3 id="wrongorder"><a class="header" href="#wrongorder">WrongOrder</a></h3>
+<p><em>Thrown when the challenge assertion Id is not ordered or in range.</em></p>
+<pre><code class="language-solidity">error WrongOrder();
+</code></pre>
+<h3 id="unproposedassertion"><a class="header" href="#unproposedassertion">UnproposedAssertion</a></h3>
+<p><em>Thrown when the challenger tries to challenge an unproposed assertion</em></p>
+<pre><code class="language-solidity">error UnproposedAssertion();
+</code></pre>
+<h3 id="assertionalreadyresolved"><a class="header" href="#assertionalreadyresolved">AssertionAlreadyResolved</a></h3>
+<p><em>Thrown when the assertion is already resolved</em></p>
+<pre><code class="language-solidity">error AssertionAlreadyResolved();
+</code></pre>
+<h3 id="nounresolvedassertion"><a class="header" href="#nounresolvedassertion">NoUnresolvedAssertion</a></h3>
+<p><em>Thrown when there is no unresolved assertion</em></p>
+<pre><code class="language-solidity">error NoUnresolvedAssertion();
+</code></pre>
+<h3 id="challengeperiodpending"><a class="header" href="#challengeperiodpending">ChallengePeriodPending</a></h3>
+<p><em>Thrown when the challenge period has not passed</em></p>
+<pre><code class="language-solidity">error ChallengePeriodPending();
+</code></pre>
+<h3 id="differentparent"><a class="header" href="#differentparent">DifferentParent</a></h3>
+<p><em>Thrown when the challenger and defender didn't attest to sibling assertions</em></p>
+<pre><code class="language-solidity">error DifferentParent();
+</code></pre>
+<h3 id="invalidparent"><a class="header" href="#invalidparent">InvalidParent</a></h3>
+<p><em>Thrown when the assertion's parent is not the last confirmed assertion</em></p>
+<pre><code class="language-solidity">error InvalidParent();
+</code></pre>
+<h3 id="notinchallenge"><a class="header" href="#notinchallenge">NotInChallenge</a></h3>
+<p><em>Thrown when the staker is not in a challenge</em></p>
+<pre><code class="language-solidity">error NotInChallenge();
+</code></pre>
+<h3 id="indifferentchallenge"><a class="header" href="#indifferentchallenge">InDifferentChallenge</a></h3>
+<p><em>Thrown when the two stakers are in different challenge</em></p>
+<pre><code class="language-solidity">error InDifferentChallenge(address staker1Challenge, address staker2Challenge);
+</code></pre>
+<h3 id="challengedstaker"><a class="header" href="#challengedstaker">ChallengedStaker</a></h3>
+<p><em>Thrown when the staker is currently in Challenge</em></p>
+<pre><code class="language-solidity">error ChallengedStaker();
+</code></pre>
+<h3 id="notallstaked"><a class="header" href="#notallstaked">NotAllStaked</a></h3>
+<p><em>Thrown when all the stakers are not staked</em></p>
+<pre><code class="language-solidity">error NotAllStaked();
+</code></pre>
+<h3 id="stakerstakedontarget"><a class="header" href="#stakerstakedontarget">StakerStakedOnTarget</a></h3>
+<p><em>Thrown staker's assertion is descendant of firstUnresolved assertion</em></p>
+<pre><code class="language-solidity">error StakerStakedOnTarget();
+</code></pre>
+<h3 id="stakerspresent"><a class="header" href="#stakerspresent">StakersPresent</a></h3>
+<p><em>Thrown when there are staker's present on the assertion</em></p>
+<pre><code class="language-solidity">error StakersPresent();
+</code></pre>
+<h3 id="nostaker"><a class="header" href="#nostaker">NoStaker</a></h3>
+<p><em>Thrown when there are zero stakers</em></p>
+<pre><code class="language-solidity">error NoStaker();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="isequencerinbox"><a class="header" href="#isequencerinbox">ISequencerInbox</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/ISequencerInbox.sol">Git Source</a></p>
+<h2 id="functions-11"><a class="header" href="#functions-11">Functions</a></h2>
+<h3 id="getinboxsize-1"><a class="header" href="#getinboxsize-1">getInboxSize</a></h3>
+<p>Gets inbox size (number of messages).</p>
+<pre><code class="language-solidity">function getInboxSize() external view returns (uint256);
+</code></pre>
+<h3 id="appendtxbatch"><a class="header" href="#appendtxbatch">appendTxBatch</a></h3>
+<p>Appends a batch of transactions (stored in calldata) and emits a TxBatchAppended event.</p>
+<pre><code class="language-solidity">function appendTxBatch(uint256[] calldata contexts, uint256[] calldata txLengths, bytes calldata txBatch) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>contexts</code></td><td><code>uint256[]</code></td><td>Array of contexts, where each context is represented by a uint256 3-tuple: (numTxs, l2BlockNumber, l2Timestamp). Each context corresponds to a single &quot;L2 block&quot;.</td></tr>
+<tr><td><code>txLengths</code></td><td><code>uint256[]</code></td><td>Array of lengths of each encoded tx in txBatch.</td></tr>
+<tr><td><code>txBatch</code></td><td><code>bytes</code></td><td>Batch of RLP-encoded transactions.</td></tr>
+</tbody></table>
+</div>
+<h3 id="verifytxinclusion"><a class="header" href="#verifytxinclusion">verifyTxInclusion</a></h3>
+<p>Verifies that a transaction exists in a batch, at the expected offset.</p>
+<pre><code class="language-solidity">function verifyTxInclusion(bytes memory proof) external view;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>proof</code></td><td><code>bytes</code></td><td>Proof of inclusion of transaction, in the form: proof := txInfo</td></tr>
+</tbody></table>
+</div>
+<h2 id="events-3"><a class="header" href="#events-3">Events</a></h2>
+<h3 id="txbatchappended"><a class="header" href="#txbatchappended">TxBatchAppended</a></h3>
+<pre><code class="language-solidity">event TxBatchAppended(uint256 batchNumber, uint256 startTxNumber, uint256 endTxNumber);
+</code></pre>
+<h2 id="errors-2"><a class="header" href="#errors-2">Errors</a></h2>
+<h3 id="incorrectaccorbatch"><a class="header" href="#incorrectaccorbatch">IncorrectAccOrBatch</a></h3>
+<p><em>Thrown when the given tx inlcusion proof has incorrect accumulator or batch no.</em></p>
+<pre><code class="language-solidity">error IncorrectAccOrBatch();
+</code></pre>
+<h3 id="emptybatch"><a class="header" href="#emptybatch">EmptyBatch</a></h3>
+<p><em>Thrown when sequencer tries to append an empty batch</em></p>
+<pre><code class="language-solidity">error EmptyBatch();
+</code></pre>
+<h3 id="txbatchdataoverflow"><a class="header" href="#txbatchdataoverflow">TxBatchDataOverflow</a></h3>
+<p><em>Thrown when overflow occurs reading txBatch (likely due to malformed txLengths)</em></p>
+<pre><code class="language-solidity">error TxBatchDataOverflow();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rollupbase"><a class="header" href="#rollupbase">RollupBase</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/Rollup.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="src/Rollup.sol//src/IRollup.sol/contract.IRollup.html">IRollup</a>, Initializable, UUPSUpgradeable, OwnableUpgradeable</p>
+<h2 id="state-variables-3"><a class="header" href="#state-variables-3">State Variables</a></h2>
+<h3 id="confirmationperiod"><a class="header" href="#confirmationperiod">confirmationPeriod</a></h3>
+<pre><code class="language-solidity">uint256 public confirmationPeriod;
+</code></pre>
+<h3 id="challengeperiod"><a class="header" href="#challengeperiod">challengePeriod</a></h3>
+<pre><code class="language-solidity">uint256 public challengePeriod;
+</code></pre>
+<h3 id="minimumassertionperiod"><a class="header" href="#minimumassertionperiod">minimumAssertionPeriod</a></h3>
+<pre><code class="language-solidity">uint256 public minimumAssertionPeriod;
+</code></pre>
+<h3 id="maxgasperassertion"><a class="header" href="#maxgasperassertion">maxGasPerAssertion</a></h3>
+<pre><code class="language-solidity">uint256 public maxGasPerAssertion;
+</code></pre>
+<h3 id="basestakeamount"><a class="header" href="#basestakeamount">baseStakeAmount</a></h3>
+<pre><code class="language-solidity">uint256 public baseStakeAmount;
+</code></pre>
+<h3 id="vault"><a class="header" href="#vault">vault</a></h3>
+<pre><code class="language-solidity">address public vault;
+</code></pre>
+<h3 id="staketoken"><a class="header" href="#staketoken">stakeToken</a></h3>
+<pre><code class="language-solidity">IERC20 public stakeToken;
+</code></pre>
+<h3 id="sequencerinbox"><a class="header" href="#sequencerinbox">sequencerInbox</a></h3>
+<pre><code class="language-solidity">ISequencerInbox public sequencerInbox;
+</code></pre>
+<h3 id="assertions-2"><a class="header" href="#assertions-2">assertions</a></h3>
+<pre><code class="language-solidity">AssertionMap public override assertions;
+</code></pre>
+<h3 id="verifier-2"><a class="header" href="#verifier-2">verifier</a></h3>
+<pre><code class="language-solidity">IVerifier public verifier;
+</code></pre>
+<h2 id="functions-12"><a class="header" href="#functions-12">Functions</a></h2>
+<h3 id="__rollupbase_init"><a class="header" href="#__rollupbase_init">__RollupBase_init</a></h3>
+<pre><code class="language-solidity">function __RollupBase_init() internal onlyInitializing;
+</code></pre>
+<h2 id="structs-1"><a class="header" href="#structs-1">Structs</a></h2>
+<h3 id="staker"><a class="header" href="#staker">Staker</a></h3>
+<pre><code class="language-solidity">struct Staker {
+    bool isStaked;
+    uint256 amountStaked;
+    uint256 assertionID;
+    address currentChallenge;
+}
+</code></pre>
+<h3 id="zombie"><a class="header" href="#zombie">Zombie</a></h3>
+<pre><code class="language-solidity">struct Zombie {
+    address stakerAddress;
+    uint256 lastAssertionID;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rollup"><a class="header" href="#rollup">Rollup</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/Rollup.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="src/Rollup.sol//src/Rollup.sol/contract.RollupBase.html">RollupBase</a></p>
+<h2 id="state-variables-4"><a class="header" href="#state-variables-4">State Variables</a></h2>
+<h3 id="lastresolvedassertionid"><a class="header" href="#lastresolvedassertionid">lastResolvedAssertionID</a></h3>
+<pre><code class="language-solidity">uint256 public lastResolvedAssertionID;
+</code></pre>
+<h3 id="lastconfirmedassertionid"><a class="header" href="#lastconfirmedassertionid">lastConfirmedAssertionID</a></h3>
+<pre><code class="language-solidity">uint256 public lastConfirmedAssertionID;
+</code></pre>
+<h3 id="lastcreatedassertionid"><a class="header" href="#lastcreatedassertionid">lastCreatedAssertionID</a></h3>
+<pre><code class="language-solidity">uint256 public lastCreatedAssertionID;
+</code></pre>
+<h3 id="numstakers"><a class="header" href="#numstakers">numStakers</a></h3>
+<pre><code class="language-solidity">uint256 public numStakers;
+</code></pre>
+<h3 id="stakers"><a class="header" href="#stakers">stakers</a></h3>
+<pre><code class="language-solidity">mapping(address =&gt; Staker) public stakers;
+</code></pre>
+<h3 id="withdrawablefunds"><a class="header" href="#withdrawablefunds">withdrawableFunds</a></h3>
+<pre><code class="language-solidity">mapping(address =&gt; uint256) public withdrawableFunds;
+</code></pre>
+<h3 id="zombies"><a class="header" href="#zombies">zombies</a></h3>
+<pre><code class="language-solidity">Zombie[] public zombies;
+</code></pre>
+<h2 id="functions-13"><a class="header" href="#functions-13">Functions</a></h2>
+<h3 id="stakedonly"><a class="header" href="#stakedonly">stakedOnly</a></h3>
+<pre><code class="language-solidity">modifier stakedOnly();
+</code></pre>
+<h3 id="initialize-3"><a class="header" href="#initialize-3">initialize</a></h3>
+<pre><code class="language-solidity">function initialize(
+    address _vault,
+    address _sequencerInbox,
+    address _verifier,
+    address _stakeToken,
+    uint256 _confirmationPeriod,
+    uint256 _challengePeriod,
+    uint256 _minimumAssertionPeriod,
+    uint256 _maxGasPerAssertion,
+    uint256 _baseStakeAmount,
+    bytes32 _initialVMhash
+) public initializer;
+</code></pre>
+<h3 id="constructor-3"><a class="header" href="#constructor-3">constructor</a></h3>
+<pre><code class="language-solidity">constructor();
+</code></pre>
+<h3 id="_authorizeupgrade-1"><a class="header" href="#_authorizeupgrade-1">_authorizeUpgrade</a></h3>
+<pre><code class="language-solidity">function _authorizeUpgrade(address) internal override onlyOwner;
+</code></pre>
+<h3 id="isstaked-1"><a class="header" href="#isstaked-1">isStaked</a></h3>
+<pre><code class="language-solidity">function isStaked(address addr) public view override returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>addr</code></td><td><code>address</code></td><td>User address.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>True if address is staked, else False.</td></tr>
+</tbody></table>
+</div>
+<h3 id="currentrequiredstake-1"><a class="header" href="#currentrequiredstake-1">currentRequiredStake</a></h3>
+<pre><code class="language-solidity">function currentRequiredStake() public view override returns (uint256);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The current required stake amount.</td></tr>
+</tbody></table>
+</div>
+<h3 id="confirmedinboxsize-1"><a class="header" href="#confirmedinboxsize-1">confirmedInboxSize</a></h3>
+<pre><code class="language-solidity">function confirmedInboxSize() public view override returns (uint256);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>confirmedInboxSize size of inbox confirmed</td></tr>
+</tbody></table>
+</div>
+<h3 id="stake-1"><a class="header" href="#stake-1">stake</a></h3>
+<p>Deposits stake on staker's current assertion (or the last confirmed assertion if not currently staked).</p>
+<pre><code class="language-solidity">function stake() external payable override;
+</code></pre>
+<h3 id="unstake-1"><a class="header" href="#unstake-1">unstake</a></h3>
+<p>Withdraws stakeAmount from staker's stake by if assertion it is staked on is confirmed.</p>
+<pre><code class="language-solidity">function unstake(uint256 stakeAmount) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakeAmount</code></td><td><code>uint256</code></td><td>Token amount to withdraw. Must be &lt;= sender's current stake minus the current required stake.</td></tr>
+</tbody></table>
+</div>
+<h3 id="removestake-1"><a class="header" href="#removestake-1">removeStake</a></h3>
+<p>Removes stakerAddress from the set of stakers and withdraws the full stake amount to stakerAddress.
+This can be called by anyone since it is currently necessary to keep the chain progressing.</p>
+<pre><code class="language-solidity">function removeStake(address stakerAddress) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of staker for which to unstake.</td></tr>
+</tbody></table>
+</div>
+<h3 id="advancestake-1"><a class="header" href="#advancestake-1">advanceStake</a></h3>
+<p>Advances msg.sender's existing stake to assertionID.</p>
+<pre><code class="language-solidity">function advanceStake(uint256 assertionID) external override stakedOnly;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>assertionID</code></td><td><code>uint256</code></td><td>ID of assertion to advance stake to. Currently this must be a child of the current assertion. TODO: generalize to arbitrary descendants.</td></tr>
+</tbody></table>
+</div>
+<h3 id="withdraw-1"><a class="header" href="#withdraw-1">withdraw</a></h3>
+<p>Withdraws all of msg.sender's withdrawable funds.</p>
+<pre><code class="language-solidity">function withdraw() external override;
+</code></pre>
+<h3 id="createassertion-2"><a class="header" href="#createassertion-2">createAssertion</a></h3>
+<p>Creates a new DA representing the rollup state after executing a block of transactions (sequenced in SequencerInbox).
+Block is represented by all transactions in range [prevInboxSize, inboxSize]. The latest staked DA of the sender
+is considered to be the predecessor. Moves sender stake onto the new DA.
+The new DA stores the hash of the parameters: H(l2GasUsed || vmHash)</p>
+<pre><code class="language-solidity">function createAssertion(
+    bytes32 vmHash,
+    uint256 inboxSize,
+    uint256 l2GasUsed,
+    bytes32 prevVMHash,
+    uint256 prevL2GasUsed
+) external override stakedOnly;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>vmHash</code></td><td><code>bytes32</code></td><td>New VM hash.</td></tr>
+<tr><td><code>inboxSize</code></td><td><code>uint256</code></td><td>Size of inbox corresponding to assertion (number of transactions).</td></tr>
+<tr><td><code>l2GasUsed</code></td><td><code>uint256</code></td><td>Total L2 gas used as of the end of this assertion's last transaction.</td></tr>
+<tr><td><code>prevVMHash</code></td><td><code>bytes32</code></td><td>Predecessor assertion VM hash (required because it does not get stored in the assertion).</td></tr>
+<tr><td><code>prevL2GasUsed</code></td><td><code>uint256</code></td><td>Predecessor assertion L2 gas used (required because it does not get stored in the assertion).</td></tr>
+</tbody></table>
+</div>
+<h3 id="challengeassertion-1"><a class="header" href="#challengeassertion-1">challengeAssertion</a></h3>
+<pre><code class="language-solidity">function challengeAssertion(address[2] calldata players, uint256[2] calldata assertionIDs)
+    external
+    override
+    returns (address);
+</code></pre>
+<h3 id="confirmfirstunresolvedassertion-1"><a class="header" href="#confirmfirstunresolvedassertion-1">confirmFirstUnresolvedAssertion</a></h3>
+<p>Confirms first unresolved assertion. Assertion is confirmed if and only if:
+(1) there is at least one staker, and
+(2) challenge period has passed, and
+(3) predecessor has been confirmed, and
+(4) all stakers are staked on the assertion.</p>
+<pre><code class="language-solidity">function confirmFirstUnresolvedAssertion() external override;
+</code></pre>
+<h3 id="rejectfirstunresolvedassertion-1"><a class="header" href="#rejectfirstunresolvedassertion-1">rejectFirstUnresolvedAssertion</a></h3>
+<p>Rejects first unresolved assertion. Assertion is rejected if and only if:
+(1) all of the following are true:
+(a) challenge period has passed, and
+(b) at least one staker exists, and
+(c) no staker remains staked on the assertion (all have been destroyed).
+OR
+(2) predecessor has been rejected</p>
+<pre><code class="language-solidity">function rejectFirstUnresolvedAssertion(address stakerAddress) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of a staker staked on a different branch to the first unresolved assertion. If the first unresolved assertion's parent is confirmed, this parameter is used to establish that a staker exists on a different branch of the assertion chain. This parameter is ignored when the parent of the first unresolved assertion is not the last confirmed assertion.</td></tr>
+</tbody></table>
+</div>
+<h3 id="completechallenge-1"><a class="header" href="#completechallenge-1">completeChallenge</a></h3>
+<p>Completes ongoing challenge. Callback, called by a challenge contract.</p>
+<pre><code class="language-solidity">function completeChallenge(address winner, address loser) external override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>winner</code></td><td><code>address</code></td><td>Address of winning staker.</td></tr>
+<tr><td><code>loser</code></td><td><code>address</code></td><td>Address of losing staker.</td></tr>
+</tbody></table>
+</div>
+<h3 id="stakeonassertion-1"><a class="header" href="#stakeonassertion-1">stakeOnAssertion</a></h3>
+<p>Updates staker and assertion metadata.</p>
+<pre><code class="language-solidity">function stakeOnAssertion(address stakerAddress, uint256 assertionID) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of existing staker.</td></tr>
+<tr><td><code>assertionID</code></td><td><code>uint256</code></td><td>ID of existing assertion to stake on.</td></tr>
+</tbody></table>
+</div>
+<h3 id="deletestaker"><a class="header" href="#deletestaker">deleteStaker</a></h3>
+<p>Deletes the staker from global state. Does not touch assertion staker state.</p>
+<pre><code class="language-solidity">function deleteStaker(address stakerAddress) private;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>stakerAddress</code></td><td><code>address</code></td><td>Address of the staker to delete</td></tr>
+</tbody></table>
+</div>
+<h3 id="getchallenge"><a class="header" href="#getchallenge">getChallenge</a></h3>
+<p>Checks to see whether the two stakers are in the same challenge</p>
+<pre><code class="language-solidity">function getChallenge(address staker1Address, address staker2Address) private view returns (address);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>staker1Address</code></td><td><code>address</code></td><td>Address of the first staker</td></tr>
+<tr><td><code>staker2Address</code></td><td><code>address</code></td><td>Address of the second staker</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>address</code></td><td>Address of the challenge that the two stakers are in</td></tr>
+</tbody></table>
+</div>
+<h3 id="newassertiondeadline"><a class="header" href="#newassertiondeadline">newAssertionDeadline</a></h3>
+<pre><code class="language-solidity">function newAssertionDeadline() private view returns (uint256);
+</code></pre>
+<h3 id="countstakedzombies"><a class="header" href="#countstakedzombies">countStakedZombies</a></h3>
+<p>Removes any zombies whose latest stake is earlier than the first unresolved assertion.</p>
+<p>Counts the number of zombies staked on an assertion.</p>
+<p><em>Uses pop() instead of delete to prevent gaps, although order is not preserved</em></p>
+<p><em>O(n), where n is # of zombies (but is expected to be small).
+This function could be uncallable if there are too many zombies. However,
+removeOldZombies() can be used to remove any zombies that exist so that this
+will then be callable.</em></p>
+<pre><code class="language-solidity">function countStakedZombies(uint256 assertionID) private view returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>assertionID</code></td><td><code>uint256</code></td><td>The assertion on which to count staked zombies</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The number of zombies staked on the assertion</td></tr>
+</tbody></table>
+</div>
+<h3 id="requirestaked"><a class="header" href="#requirestaked">requireStaked</a></h3>
+<pre><code class="language-solidity">function requireStaked(address stakerAddress) private view;
+</code></pre>
+<h3 id="requireunchallengedstaker"><a class="header" href="#requireunchallengedstaker">requireUnchallengedStaker</a></h3>
+<pre><code class="language-solidity">function requireUnchallengedStaker(address stakerAddress) private view;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rolluplib"><a class="header" href="#rolluplib">RollupLib</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/RollupLib.sol">Git Source</a></p>
+<h2 id="functions-14"><a class="header" href="#functions-14">Functions</a></h2>
+<h3 id="statehash"><a class="header" href="#statehash">stateHash</a></h3>
+<p>Computes the hash of <code>execState</code>.</p>
+<pre><code class="language-solidity">function stateHash(ExecutionState memory execState) internal pure returns (bytes32);
+</code></pre>
+<h2 id="structs-2"><a class="header" href="#structs-2">Structs</a></h2>
+<h3 id="executionstate"><a class="header" href="#executionstate">ExecutionState</a></h3>
+<pre><code class="language-solidity">struct ExecutionState {
+    uint256 l2GasUsed;
+    bytes32 vmHash;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sequencerinbox-1"><a class="header" href="#sequencerinbox-1">SequencerInbox</a></h1>
+<p><a href="https://github.com/SpecularL2/specular/blob/45f44372b1909409b6e594b9cedf660988f36db2/src/SequencerInbox.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+<a href="src/SequencerInbox.sol//src/ISequencerInbox.sol/contract.ISequencerInbox.html">ISequencerInbox</a>, Initializable, UUPSUpgradeable, OwnableUpgradeable</p>
+<h2 id="state-variables-5"><a class="header" href="#state-variables-5">State Variables</a></h2>
+<h3 id="inboxsize"><a class="header" href="#inboxsize">inboxSize</a></h3>
+<pre><code class="language-solidity">uint256 private inboxSize;
+</code></pre>
+<h3 id="accumulators"><a class="header" href="#accumulators">accumulators</a></h3>
+<pre><code class="language-solidity">bytes32[] public accumulators;
+</code></pre>
+<h3 id="sequenceraddress"><a class="header" href="#sequenceraddress">sequencerAddress</a></h3>
+<pre><code class="language-solidity">address public sequencerAddress;
+</code></pre>
+<h2 id="functions-15"><a class="header" href="#functions-15">Functions</a></h2>
+<h3 id="initialize-4"><a class="header" href="#initialize-4">initialize</a></h3>
+<pre><code class="language-solidity">function initialize(address _sequencerAddress) public initializer;
+</code></pre>
+<h3 id="constructor-4"><a class="header" href="#constructor-4">constructor</a></h3>
+<pre><code class="language-solidity">constructor();
+</code></pre>
+<h3 id="_authorizeupgrade-2"><a class="header" href="#_authorizeupgrade-2">_authorizeUpgrade</a></h3>
+<pre><code class="language-solidity">function _authorizeUpgrade(address) internal override onlyOwner;
+</code></pre>
+<h3 id="getinboxsize-2"><a class="header" href="#getinboxsize-2">getInboxSize</a></h3>
+<pre><code class="language-solidity">function getInboxSize() external view override returns (uint256);
+</code></pre>
+<h3 id="appendtxbatch-1"><a class="header" href="#appendtxbatch-1">appendTxBatch</a></h3>
+<pre><code class="language-solidity">function appendTxBatch(uint256[] calldata contexts, uint256[] calldata txLengths, bytes calldata txBatch)
+    external
+    override;
+</code></pre>
+<h3 id="verifytxinclusion-1"><a class="header" href="#verifytxinclusion-1">verifyTxInclusion</a></h3>
+<pre><code class="language-solidity">function verifyTxInclusion(bytes memory proof) external view override;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="solidity.min.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
