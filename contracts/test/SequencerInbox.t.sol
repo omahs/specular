@@ -284,4 +284,32 @@ contract SequencerInboxTest is SequencerBaseSetup {
         assertGt(inboxSizeFinal, inboxSizeInitial);
         assertEq(inboxSizeFinal, numTxnsPerBlock); // Since the timestamp and block.number were not included for the 2nd block, only 1st block's 3 txns are included.
     }
+
+    function test_verifyTxInclusion_positiveCase() external {
+        // Here is the data that we need to collect in order to test this function. 
+        // Let's first see what is `txInfo` made up of
+        // txInfo := (sender || l2BlockNumber || l2Timestamp || txDataLength || txData)
+
+        // We will gather all this information related to all the transactions in the `utils/RLPEncodedTransactions.sol` file
+        // Information contained in that file now is:
+        /**
+            1. rlp encoded transactions
+            2. senders of those transactions
+            3. txDataLengths
+            4. txData
+         */
+
+        // Next we see, how to calculate batchInfo
+        // batchInfo := (batchNum || numTxsBefore || numTxsAfterInBatch || accBefore)
+        /**
+            batchNum = the index to the accumulators array
+            accBefore = acc value right before the tx is hashed (value of the accumulators array, before this ith txnBatch)
+         */
+        // All this information can be gather when we are calling `appendTxBatch` itself, no need to gather it from anywhere else.
+
+        // The next remaining piece to figure out for testing `verifyTxInclusion` is: {foreach tx in batch: (prefixHash || txDataHash), ...}
+         
+
+        assertTrue(true);
+    }
 }
