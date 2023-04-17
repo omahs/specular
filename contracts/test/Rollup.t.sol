@@ -42,10 +42,12 @@ contract RollupBaseSetup is Test, RLPEncodedTransactionsUtil {
 
     function setUp() public virtual {
         utils = new Utils();
-        users = utils.createUsers(2);
+        users = utils.createUsers(4);
 
         deployer = users[0];
         sequencerAddress = users[1];
+        alice = users[2];
+        bob = users[3];
     }
 }
 
