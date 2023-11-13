@@ -1,4 +1,16 @@
 #!/bin/sh
+SBIN=$(dirname "$(readlink -f "$0")")
+ROOT_DIR=$SBIN/..
+
+cd $ROOT_DIR/workspace
+
+# Check that the all required dotenv files exists.
+CONFIGURE_ENV=".configure.env"
+if ! test -f $CONFIGURE_ENV; then
+    echo "Expected dotenv at $CONFIGURE_ENV (does not exist)."
+    exit
+fi
+. $CONFIGURE_ENV
 
 # Check that the dotenv exists, or GENESIS_PATH is set.
 ENV=".genesis.env"
@@ -7,15 +19,6 @@ if ! test -f $ENV && [ -z ${GENESIS_PATH+x} ]; then
     exit 1
 fi
 . $ENV
-
-# Note: do not add any printing to stdout in the positive case.
-# TODO: fix this assumption in the ts script ^
-if [ -z $SP_GETH_BIN ]; then
-    # If no binary specified, assume repo directory structure.
-    SBIN=`dirname $0`
-    SBIN="`cd "$SBIN"; pwd`"
-    . $SBIN/configure.sh
-fi
 
 # Export l2 genesis hash for $GENESIS_PATH
 DATA_DIR=tmp_data/

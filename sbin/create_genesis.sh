@@ -1,19 +1,28 @@
 #!/bin/bash
-# Check that the dotenv exists.
-ENV=".genesis.env"
-if ! test -f $ENV; then
-    echo "Expected dotenv at $ENV (does not exist)."
+
+# TODO: can we get rid of this somehow?
+# currently the local sbin paths are relative to the project root
+SBIN=$(dirname "$(readlink -f "$0")")
+SBIN="`cd "$SBIN"; pwd`"
+ROOT_DIR=$SBIN/..
+
+# Check that the all required dotenv files exists.
+CONFIGURE_ENV=".configure.env"
+if ! test -f $CONFIGURE_ENV; then
+    echo "Expected dotenv at $CONFIGURE_ENV (does not exist)."
     exit
 fi
-echo "Using dotenv: $ENV"
-. $ENV
+echo "Using configure dotenv: $CONFIGURE_ENV"
+. $CONFIGURE_ENV
 
-if [ ! -d "$CONTRACTS_DIR" ]; then
-    SBIN=`dirname $0`
-    SBIN="`cd "$SBIN"; pwd`"
-    . $SBIN/configure.sh
-    CONTRACTS_DIR="`cd "$CONTRACTS_DIR"; pwd`"
+GENESIS_ENV=".genesis.env"
+if ! test -f $GENESIS_ENV; then
+    echo "Expected dotenv at $GENESIS_ENV (does not exist)."
+    exit
 fi
+echo "Using dotenv: $GENESIS_ENV"
+. $GENESIS_ENV
+
 echo "Using $CONTRACTS_DIR as HH proj"
 
 # Define a function to convert a path to be relative to another directory.
