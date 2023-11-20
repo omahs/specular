@@ -31,7 +31,7 @@ Note: the commands that follow below assume you are in the project root director
 
 ### Quick-start with Docker
 
-The simplest way to run a local L2 devent is to use the provided docker-compose.
+The simplest way to run a local L2 devnet is to use the provided docker-compose.
 ```sh
 mkdir workspace
 cp -a config/local_docker/. workspace/ # copy all config files
