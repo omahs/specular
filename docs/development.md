@@ -60,5 +60,5 @@ After an L2 transaction, in the Hardhat node console, observe the resulting L1 t
 - sequencer calls `confirmFirstUnresolvedAssertion` to confirm the assertion after every staker has attested to it.
 
 If you restart the network after having transacted with MetaMask, don't forget to reset your MetaMask account.
-Select the appropriate account, go to `Setting -> Advanced`, and click `Reset Account`.
+Select the appropriate account, go to `Settings -> Advanced`, and click `Reset Account`.
 This ensures the account nonce cache in MetaMask is cleared.
